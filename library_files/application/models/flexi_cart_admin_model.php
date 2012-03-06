@@ -1489,7 +1489,7 @@ class Flexi_cart_admin_model extends Flexi_cart_lite_model
 			{
 				$query = $this->db->select($tbl_col_order_summary['order_number'])
 					->from($this->flexi->cart_database['order_summary']['table'])
-					->order_by($tbl_col_order_summary['date'], 'desc')
+					->order_by($tbl_col_order_summary['order_number'], 'desc')
 					->limit(1)
 					->get();
 				
