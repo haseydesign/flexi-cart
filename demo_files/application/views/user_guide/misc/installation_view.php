@@ -42,14 +42,16 @@
 					The guide includes the steps to install either the 'library only' or 'demo' versions of flexi cart.<br/>
 					The library version contains only the essential files required to run flexi cart, the demo version includes all files to run an installation of the online flexi cart demo.	
 				</p>
+				<p class="highlight_red">Note that some of the steps listed below may not need to be completed if the flexi cart library is being installed to to a previously setup CodeIgniter installation.</p>
 				<hr/>
 				
 				<h6>Update the 'config/config.php' file</h6>
 				<div class="frame_note">
+					<p>The following steps may not need to be applied to a previous CodeIgniter installation.</p>
 					<ul>
 						<li>
 							Update the 'base_url' to CodeIgniters root installation directory.<br/>
-							<code>$config['base_url'] = 'http://localhost/flexi_cart/live/';</code>
+							<code>$config['base_url'] = 'http://localhost/your_codeigniter_directory/';</code>
 						</li>
 						<li>
 							Update the 'index_page' config setting to ''. This will remove 'index.php' from the sites urls.<br/>
@@ -58,14 +60,9 @@
 							<code>$config['index_page'] = '';</code>
 						</li>
 						<li>
-							Update the 'sess_use_database' config setting to TRUE. This instructs CodeIgniter to save session data to the database rather than as a browser cookie.<br/>
-							This is required as the cart session data is too big to store in a cookie.<br/>
-							<code>$config['sess_use_database'] = TRUE;</code>
-						</li>
-						<li>
 							Update the 'encryption_key' config setting to a value of your choice.<br/>
 							This is optional, but will improve security with your CodeIgniter installation.<br/>
-							<code>$config['encryption_key'] = 'MY_ENCRYPTION_KEY';</code>
+							<code>$config['encryption_key'] = 'YOUR_ENCRYPTION_KEY';</code>
 						</li>
 						<li>
 							Update the 'global_xss_filtering' config setting to TRUE.<br/>
@@ -73,10 +70,20 @@
 							<code>$config['global_xss_filtering'] = TRUE;</code>
 						</li>
 					</ul>
+
+					<p>This step must be completed to all flexi cart installations.</p>
+					<ul>
+						<li>
+							Update the 'sess_use_database' config setting to TRUE. This instructs CodeIgniter to save session data to the database rather than as a browser cookie.<br/>
+							<strong>This is required</strong> as the cart session data is too big to store in a cookie.<br/>
+							<code>$config['sess_use_database'] = TRUE;</code>
+						</li>
+					</ul>
 				</div>
 				
 				<h6>Update the 'config/database.php' file</h6>
 				<div class="frame_note">
+					<p>This step must be completed if a database has not been configured with your CodeIgniter installation.</p>
 					<ul>
 						<li>
 							Update the database configuration settings located in the 'config/database.php' file to connect to your database.
@@ -84,8 +91,9 @@
 					</ul>
 				</div>
 				
-				<h6>Update the 'config/routes.php' file (Demo version only)</h6>
+				<h6>Update the 'config/routes.php' file</h6>
 				<div class="frame_note">
+					<p>This step is only required if you are installing the flexi cart demo.</p>
 					<ul>
 						<li>
 							Update the 'default_controller' to the sites home page.<br/>
@@ -145,12 +153,21 @@
 							<strong>js</strong> : 'admin_global.js', 'global.js', 'jquery.countdown.min.js' and 'jquery.tools.tooltips.min.js'.
 						</li>
 					</ul>
-					<p>
-						If installing the flexi cart demo to a new CodeIgniter installation, you may wish to also copy the '.htaccess' file to the root CodeIgniter directory.<br/>
-						Note that you may need to change the path of the files 'RewriteBase /' to your servers Codeigniter installation.  
-					</p>
 				</div>
 		
+				<h6>Update the '.htaccess' root CodeIgniter directory</h6>
+				<div class="frame_note">
+					<p>
+						If installing the flexi cart demo to a new CodeIgniter installation, you may wish to also copy the '.htaccess' file to the root CodeIgniter directory.<br/>
+						Note that you may need to change the path of the files 'RewriteBase /' to your servers Codeigniter installation.
+					</p>
+					<p>
+						<strong>Example</strong><br/>
+						If the 'base_url' defined via the config file was <code>$config['base_url'] = 'http://localhost/your_codeigniter_directory/'</code><br/>
+						Then the '.htaccess' file should be updated to <code>RewriteBase /your_codeigniter_directory/</code>.
+					</p>
+				</div>
+
 				<h6>Update 'base_url' and 'includes_dir' vars</h6>
 				<div class="frame_note">
 					<p>If installing the flexi cart demo, the directories of the 'base_url' and 'includes_dir' vars need to be updated for the demo files to work correctly.</p>
@@ -159,8 +176,8 @@
 						These can be found in the constructor of each controller and look like.
 					</p>
 					<p>
-						<code>$this->load->vars('base_url', 'http://localhost/flexi_cart/');</code><br/>
-						<code>$this->load->vars('includes_dir', 'http://localhost/flexi_cart/includes/');</code>
+						<code>$this->load->vars('base_url', 'http://localhost/your_codeigniter_directory/');</code><br/>
+						<code>$this->load->vars('includes_dir', 'http://localhost/your_codeigniter_directory/includes/');</code>
 					</p>
 					<p>The 'base_url' must refer to CodeIgniters root installation directory. 'includes_dir' must refer to the demo 'includes' folder.</p>
 				</div>
