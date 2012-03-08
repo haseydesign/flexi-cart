@@ -43,7 +43,7 @@
 	<div class="content_wrap intro_bg">
 		<div class="content clearfix">
 			<h2>The latest news on flexi cart</h2>
-			<p>The flexi cart beta 1.0 will be launching very soon!</p>
+			<p>The flexi cart beta 1.0 has been launched for public use!</p>
 		</div>
 	</div>
 
