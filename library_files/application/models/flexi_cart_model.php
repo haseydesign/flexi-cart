@@ -584,7 +584,7 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 			$this->flexi_cart->empty_cart(FALSE);
 
 			// Clear empty cart status message.
-			$this->flexi_cart_admin->clear_messages();
+			$this->flexi_cart->clear_messages();
 			
 			return FALSE;
 		}
