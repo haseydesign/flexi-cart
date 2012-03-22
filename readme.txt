@@ -11,4 +11,5 @@ Library Overview: http://haseydesign.com/flexi-cart/
 Library Demo: http://haseydesign.com/flexi-cart/demo/
 Library User Guide: http://haseydesign.com/flexi-cart/user_guide/
 
+Support : http://codeigniter.com/forums/viewthread/212926
 Contact : flexicart@haseydesign.com
