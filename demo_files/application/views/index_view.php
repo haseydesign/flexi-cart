@@ -26,15 +26,15 @@
 				<h1>flexi cart, the developers toolkit for building customised shopping carts.</h1>
 				<a href="<?php echo $base_url; ?>user_guide">
 					<img src="<?php echo $includes_dir; ?>images/user_guide_icon.png"/>
-					<p style="font-size:20px; font-weight:bold; color:#fff; text-decoration:underline;">User Guide</p>
+					<p>User Guide</p>
 				</a>
 				<a href="<?php echo $base_url; ?>lite_library/demo">
 					<img src="<?php echo $includes_dir; ?>images/demo_icon.png"/>
-					<p style="font-size:20px; font-weight:bold; color:#fff; text-decoration:underline;">Try the Demo</p>
+					<p>Try the Demo</p>
 				</a>
 				<a href="https://github.com/haseydesign/flexi-cart">
 					<img src="<?php echo $includes_dir; ?>images/download_icon.png"/>
-					<p style="font-size:20px; font-weight:bold; color:#fff; text-decoration:underline;">Download</p>
+					<p>Download</p>
 				</a>
 			</div>		
 		</div>
