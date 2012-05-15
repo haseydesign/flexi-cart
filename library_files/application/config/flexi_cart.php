@@ -1089,11 +1089,11 @@
 	/**
 	 * Public and Admin Messages
 	 * Define which status and error messages are returned as public or admin messages.
-	 * Public messages are intended to be displayed to customers, whilst admin messages are intended for admin users only.
+	 * Public messages are intended to be displayed to public users, whilst admin messages are intended for admin users only.
 	 *
 	 * Example:
 	 * Public message = $config['messages']['public_status']['items_added_successfully'] = TRUE;
-	 *	Admin message = $config['messages']['public_status']['items_added_successfully'] = FALSE;
+	 * Admin Only message = $config['messages']['public_status']['items_added_successfully'] = FALSE;
 	 */ 
 	 
 	// Cart Item functions
