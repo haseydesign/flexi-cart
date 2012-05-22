@@ -27,6 +27,7 @@
 			<div class="intro_text">
 				<h1>User Guide | flexi cart</h1>
 				<p>flexi cart is the developers toolkit for building highly customised shopping carts.</p>
+				<p>The <strong>latest version is beta 1.0.1</strong>, released on 22/05/12. The <a href="<?php echo $base_url; ?>user_guide/change_log">change log</a> contains all amendments made to the library.</p>
 			</div>		
 		</div>
 	</div>
@@ -69,6 +70,9 @@
 					</li>
 					<li>
 						<a href="<?php echo $base_url; ?>user_guide/cart_config_internal#messages">Status / Error Messages</a>
+					</li>
+					<li>
+						<a href="<?php echo $base_url; ?>user_guide/cart_config_internal#language">Define Language</a>
 					</li>
 				</ul>
 				<hr/>

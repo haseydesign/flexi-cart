@@ -36,6 +36,31 @@
 		<div class="content clearfix">
 			
 			<div class="w100 frame">
+				<h3 class="heading">Version Beta 1.0.1</h3>
+				<h6>Release Date 22nd May 2012</h6>
+				<hr/>
+				<ul>
+					<li>
+						<h6>Added 'Italian', 'French', 'German', and 'Spanish' language files.</h6>
+						<p>The new language files can be located at 'application/language/[LANGUAGE]/flexi_cart_lang.php'.</p>
+						<p>
+							The Italian language file has been kindly translated by koichirose.<br/>
+							The other language files are currently translations using Google Translate, so beware they may contain misinterpretations.
+						</p>
+						<p>See <a href="<?php echo $base_url; ?>user_guide/cart_config_internal#language">this updated help guide page</a> for details on defining a specific language file.</p>
+					</li>
+					<li>
+						<h6>Updated the functionality of the libraries message functions.</h6>
+						<p>The libraries message functions have been improved so that messages set internally via the library (e.g. When adding an item to the cart), can be defined to be shown to either 'Public' or 'Admin' users, <span class="uline">or to not be shown at all</span>.</p>
+						<p>This functionality has been defined via the libraries config. file and can be found via the <code>$config['messages']['target_user']</code> settings.</p>
+						<hr/>
+						<p>For further clarity, when using the libraries functions to set and return status and error messages, each message function now requires that either 'public' or 'admin' is defined as the 'target_user'.</p>
+						<p>The <a href="<?php echo $base_url; ?>user_guide/cart_set_data">user guide</a> has been updated to reflect these changes.</p>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="w100 frame">
 				<h3 class="heading">Version Beta 1.0</h3>
 				<h6>Release Date 1st January 2012</h6>
 				<hr/>

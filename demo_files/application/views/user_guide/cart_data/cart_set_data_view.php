@@ -533,7 +533,7 @@ $this->flexi_cart->destroy_cart();
 				</div>				
 				
 				<h6>Function Parameters</h6>
-				<code>status_messages(public_message, prefix_delimiter, suffix_delimiter)</code>
+				<code>status_messages(target_user, prefix_delimiter, suffix_delimiter)</code>
 				<a href="#help" class="help_link">Help</a>
 				<table>
 					<thead>
@@ -547,11 +547,15 @@ $this->flexi_cart->destroy_cart();
 					</thead>
 					<tbody>
 						<tr>
-							<td>public_message</td>
-							<td class="align_ctr">bool</td>
+							<td>target_user</td>
+							<td class="align_ctr">string</td>
 							<td class="align_ctr">No</td>
-							<td class="align_ctr">FALSE</td>
-							<td>Define whether to suppress any 'Admin' status messages and only return 'Public' messages intended for notifying public users.</td>
+							<td class="align_ctr">'public'</td>
+							<td>
+								Define whether to suppress any 'admin' error messages and only return 'public' messages intended for notifying public users.<br/>
+								Defining 'public' will return the message for both public and admin users.<br/> 
+								Defining 'admin' will return the message for admin users only.
+							</td>
 						</tr>
 						<tr>
 							<td>prefix_delimiter</td>
@@ -598,20 +602,20 @@ $this->flexi_cart->destroy_cart();
 				<table class="example">
 					<tr>
 						<td>
-							<code>status_messages(FALSE, FALSE, FALSE)</code>
-							<small>This would return all <span class="uline">private</span> status messages as non formatted text.</small>
+							<code>status_messages('admin', FALSE, FALSE)</code>
+							<small>This would return all <span class="uline">admin</span> status messages as non formatted text.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>status_messages(TRUE, FALSE, FALSE)</code>
-							<small>This would return all <span class="uline">public and private</span> status messages as non formatted text.</small>
+							<code>status_messages('public', FALSE, FALSE)</code>
+							<small>This would return all <span class="uline">public and admin</span> status messages as non formatted text.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>status_messages(FALSE, '<?php echo htmlentities('<p>');?>', '<?php echo htmlentities('</p>');?>')</code>
-							<small>This would return all <span class="uline">private</span> status messages formatted in a html <?php echo htmlentities('<p>');?> tag.</small>
+							<code>status_messages('admin', '<?php echo htmlentities('<p>');?>', '<?php echo htmlentities('</p>');?>')</code>
+							<small>This would return all <span class="uline">admin</span> status messages formatted in a html <?php echo htmlentities('<p>');?> tag.</small>
 						</td>
 					</tr>
 				</table>
@@ -631,7 +635,7 @@ $this->flexi_cart->destroy_cart();
 				</div>				
 				
 				<h6>Function Parameters</h6>
-				<code>set_status_message(status_message, public_message, overwrite_existing)</code>
+				<code>set_status_message(status_message, target_user, overwrite_existing)</code>
 				<a href="#help" class="help_link">Help</a>
 				<table>
 					<thead>
@@ -652,11 +656,11 @@ $this->flexi_cart->destroy_cart();
 							<td>Defines the status message to be set.</td>
 						</tr>
 						<tr>
-							<td>public_message</td>
-							<td class="align_ctr">bool</td>
+							<td>target_user</td>
+							<td class="align_ctr">string</td>
 							<td class="align_ctr">No</td>
-							<td class="align_ctr">FALSE</td>
-							<td>Define whether to set the message as a 'Public' or 'Admin' status message.</td>
+							<td class="align_ctr">'public'</td>
+							<td>Define whether to set the message as a 'public' or 'admin' status message.</td>
 						</tr>
 						<tr>
 							<td>overwrite_existing</td>
@@ -678,20 +682,20 @@ $this->flexi_cart->destroy_cart();
 				<table class="example">
 					<tr>
 						<td>
-							<code>set_status_message('This is a custom PRIVATE status message', FALSE, FALSE)</code>
-							<small>This would set a status message that would not be shown in public areas of the site.</small>
+							<code>set_status_message('This is a custom ADMIN status message', 'admin', FALSE)</code>
+							<small>This would set a status message that would NOT be shown in public areas of the site.</small>
 						</th>
 					</tr>
 					<tr>
 						<td>
-							<code>set_status_message('This is a custom PUBLIC status message', TRUE, FALSE)</code>
-							<small>This would set a status message that would be shown in public and private areas of the site.</small>
+							<code>set_status_message('This is a custom PUBLIC status message', 'public', FALSE)</code>
+							<small>This would set a status message that would be shown in public and admin areas of the site.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>set_status_message('This is a custom PUBLIC status message', TRUE, TRUE)</code>
-							<small>This would overwrite any existing messages and then set a status message that would be shown in public and private areas of the site.</small>
+							<code>set_status_message('This is a custom PUBLIC status message', 'public', TRUE)</code>
+							<small>This would overwrite any existing messages and then set a status message that would be shown in public and admin areas of the site.</small>
 						</td>
 					</tr>
 				</table>
@@ -741,7 +745,7 @@ $this->flexi_cart->destroy_cart();
 				</div>				
 				
 				<h6>Function Parameters</h6>
-				<code>error_messages(public_message, prefix_delimiter, suffix_delimiter)</code>
+				<code>error_messages(target_user, prefix_delimiter, suffix_delimiter)</code>
 				<a href="#help" class="help_link">Help</a>
 				<table>
 					<thead>
@@ -755,11 +759,15 @@ $this->flexi_cart->destroy_cart();
 					</thead>
 					<tbody>
 						<tr>
-							<td>public_message</td>
-							<td class="align_ctr">bool</td>
+							<td>target_user</td>
+							<td class="align_ctr">string</td>
 							<td class="align_ctr">No</td>
-							<td class="align_ctr">FALSE</td>
-							<td>Define whether to suppress any 'Admin' error messages and only return 'Public' messages intended for notifying public users.</td>
+							<td class="align_ctr">'public'</td>
+							<td>
+								Define whether to suppress any 'admin' error messages and only return 'public' messages intended for notifying public users.<br/>
+								Defining 'public' will return the message for both public and admin users.<br/> 
+								Defining 'admin' will return the message for admin users only.
+							</td>
 						</tr>
 						<tr>
 							<td>prefix_delimiter</td>
@@ -806,20 +814,20 @@ $this->flexi_cart->destroy_cart();
 				<table class="example">
 					<tr>
 						<td>
-							<code>error_messages(FALSE, FALSE, FALSE)</code>
-							<small>This would return all <span class="uline">private</span> error messages as non formatted text.</small>
+							<code>error_messages('admin', FALSE, FALSE)</code>
+							<small>This would return all <span class="uline">admin</span> error messages as non formatted text.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>error_messages(TRUE, FALSE, FALSE)</code>
-							<small>This would return all <span class="uline">public and private</span> error messages as non formatted text.</small>
+							<code>error_messages('public', FALSE, FALSE)</code>
+							<small>This would return all <span class="uline">public and admin</span> error messages as non formatted text.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>error_messages(FALSE, '<?php echo htmlentities('<p>');?>', '<?php echo htmlentities('</p>');?>')</code>
-							<small>This would return all <span class="uline">private</span> error messages formatted in a html <?php echo htmlentities('<p>');?> tag.</small>
+							<code>error_messages('admin', '<?php echo htmlentities('<p>');?>', '<?php echo htmlentities('</p>');?>')</code>
+							<small>This would return all <span class="uline">admin</span> error messages formatted in a html <?php echo htmlentities('<p>');?> tag.</small>
 						</td>
 					</tr>
 				</table>
@@ -839,7 +847,7 @@ $this->flexi_cart->destroy_cart();
 				</div>				
 				
 				<h6>Function Parameters</h6>
-				<code>set_error_message(error_message, public_message, overwrite_existing)</code>
+				<code>set_error_message(error_message, target_user, overwrite_existing)</code>
 				<a href="#help" class="help_link">Help</a>
 				<table>
 					<thead>
@@ -860,11 +868,11 @@ $this->flexi_cart->destroy_cart();
 							<td>Defines the error message to be set.</td>
 						</tr>
 						<tr>
-							<td>public_message</td>
-							<td class="align_ctr">bool</td>
+							<td>target_user</td>
+							<td class="align_ctr">string</td>
 							<td class="align_ctr">No</td>
-							<td class="align_ctr">FALSE</td>
-							<td>Define whether to set the message as a 'Public' or 'Admin' error message.</td>
+							<td class="align_ctr">'public'</td>
+							<td>Define whether to set the message as a 'public' or 'admin' error message.</td>
 						</tr>
 						<tr>
 							<td>overwrite_existing</td>
@@ -886,20 +894,20 @@ $this->flexi_cart->destroy_cart();
 				<table class="example">
 					<tr>
 						<td>
-							<code>set_error_message('This is a custom PRIVATE error message', FALSE, FALSE)</code>
-							<small>This would set an error message that would not be shown in public areas of the site.</small>
+							<code>set_error_message('This is a custom ADMIN error message', 'admin', FALSE)</code>
+							<small>This would set an error message that would NOT be shown in public areas of the site.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>set_error_message('This is a custom PUBLIC error message', TRUE, FALSE)</code>
-							<small>This would set an error message that would be shown in public and private areas of the site.</small>
+							<code>set_error_message('This is a custom PUBLIC error message', 'public', FALSE)</code>
+							<small>This would set an error message that would be shown in public and admin areas of the site.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>set_error_message('This is a custom PUBLIC error message', TRUE, TRUE)</code>
-							<small>This would overwrite any existing messages and then set a error message that would be shown in public and private areas of the site.</small>
+							<code>set_error_message('This is a custom PUBLIC error message', 'public', TRUE)</code>
+							<small>This would overwrite any existing messages and then set a error message that would be shown in public and admin areas of the site.</small>
 						</td>
 					</tr>
 				</table>
@@ -982,7 +990,7 @@ $this->flexi_cart->destroy_cart();
 				</div>				
 				
 				<h6>Function Parameters</h6>
-				<code>get_messages_array(public_message, prefix_delimiter, suffix_delimiter)</code>
+				<code>get_messages_array(target_user, prefix_delimiter, suffix_delimiter)</code>
 				<a href="#help" class="help_link">Help</a>
 				<table>
 					<thead>
@@ -996,11 +1004,15 @@ $this->flexi_cart->destroy_cart();
 					</thead>
 					<tbody>
 						<tr>
-							<td>public_message</td>
-							<td class="align_ctr">bool</td>
+							<td>target_user</td>
+							<td class="align_ctr">string</td>
 							<td class="align_ctr">No</td>
-							<td class="align_ctr">FALSE</td>
-							<td>Define whether to suppress any 'Admin' messages and only return 'Public' messages intended for notifying public users.</td>
+							<td class="align_ctr">'public'</td>
+							<td>
+								Define whether to suppress any 'admin' error messages and only return 'public' messages intended for notifying public users.<br/>
+								Defining 'public' will return the message for both public and admin users.<br/> 
+								Defining 'admin' will return the message for admin users only.
+							</td>
 						</tr>
 						<tr>
 							<td>prefix_delimiter</td>
@@ -1047,20 +1059,20 @@ $this->flexi_cart->destroy_cart();
 				<table class="example">
 					<tr>
 						<td>
-							<code>get_messages_array(FALSE, FALSE, FALSE)</code>
-							<small>This would return an array of all the <span class="uline">private</span> status and error messages as non formatted text, with an array key indicating the message type.</small>
+							<code>get_messages_array('admin', FALSE, FALSE)</code>
+							<small>This would return an array of all the <span class="uline">admin</span> status and error messages as non formatted text, with an array key indicating the message type.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>get_messages_array(FALSE, FALSE, FALSE)</code>
-							<small>This would return an array of all the <span class="uline">public and private</span> status and error messages as non formatted text, with an array key indicating the message type.</small>
+							<code>get_messages_array('public', FALSE, FALSE)</code>
+							<small>This would return an array of all the <span class="uline">public and admin</span> status and error messages as non formatted text, with an array key indicating the message type.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>get_messages_array(FALSE, '<?php echo htmlentities('<p>');?>', '<?php echo htmlentities('</p>');?>')</code>
-							<small>This would return an array of all the <span class="uline">private</span> status and error messages formatted in a html <?php echo htmlentities('<p>');?> tag, with an array key indicating the message type.</small>
+							<code>get_messages_array('admin', '<?php echo htmlentities('<p>');?>', '<?php echo htmlentities('</p>');?>')</code>
+							<small>This would return an array of all the <span class="uline">admin</span> status and error messages formatted in a html <?php echo htmlentities('<p>');?> tag, with an array key indicating the message type.</small>
 						</td>
 					</tr>
 				</table>
@@ -1080,7 +1092,7 @@ $this->flexi_cart->destroy_cart();
 				</div>				
 				
 				<h6>Function Parameters</h6>
-				<code>get_messages(public_message, prefix_delimiter, suffix_delimiter)</code>
+				<code>get_messages(target_user, prefix_delimiter, suffix_delimiter)</code>
 				<a href="#help" class="help_link">Help</a>
 				<table>
 					<thead>
@@ -1094,11 +1106,15 @@ $this->flexi_cart->destroy_cart();
 					</thead>
 					<tbody>
 						<tr>
-							<td>public_message</td>
-							<td class="align_ctr">bool</td>
+							<td>target_user</td>
+							<td class="align_ctr">string</td>
 							<td class="align_ctr">No</td>
-							<td class="align_ctr">FALSE</td>
-							<td>Define whether to suppress any 'Admin' messages and only return 'Public' messages intended for notifying public users.</td>
+							<td class="align_ctr">'public'</td>
+							<td>
+								Define whether to suppress any 'admin' error messages and only return 'public' messages intended for notifying public users.<br/>
+								Defining 'public' will return the message for both public and admin users.<br/> 
+								Defining 'admin' will return the message for admin users only.
+							</td>
 						</tr>
 						<tr>
 							<td>prefix_delimiter</td>
@@ -1145,20 +1161,20 @@ $this->flexi_cart->destroy_cart();
 				<table class="example">
 					<tr>
 						<td>
-							<code>get_messages(FALSE, FALSE, FALSE)</code>
-							<small>This would return all <span class="uline">private</span> status and error messages as non formatted text.</small>
+							<code>get_messages('admin', FALSE, FALSE)</code>
+							<small>This would return all <span class="uline">admin</span> status and error messages as non formatted text.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>get_messages(TRUE, FALSE, FALSE)</code>
-							<small>This would return all <span class="uline">public and private</span> status and error messages as non formatted text.</small>
+							<code>get_messages('public', FALSE, FALSE)</code>
+							<small>This would return all <span class="uline">public and admin</span> status and error messages as non formatted text.</small>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<code>get_messages(FALSE, '<?php echo htmlentities('<p>');?>', '<?php echo htmlentities('</p>');?>')</code>
-							<small>This would return all <span class="uline">private</span> status and error messages formatted in a html <?php echo htmlentities('<p>');?> tag.</small>
+							<code>get_messages('admin', '<?php echo htmlentities('<p>');?>', '<?php echo htmlentities('</p>');?>')</code>
+							<small>This would return all <span class="uline">admin</span> status and error messages formatted in a html <?php echo htmlentities('<p>');?> tag.</small>
 						</td>
 					</tr>
 				</table>
