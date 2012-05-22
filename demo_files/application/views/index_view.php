@@ -43,7 +43,7 @@
 	<div class="content_wrap intro_bg">
 		<div class="content clearfix">
 			<h2>The latest news on flexi cart</h2>
-			<p>The flexi cart beta 1.0 has been launched for public use!</p>
+			<p>flexi cart beta 1.0.1 has been released including new language files and library message functionality.</p>
 		</div>
 	</div>
 
