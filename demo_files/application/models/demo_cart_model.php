@@ -243,8 +243,8 @@ class Demo_cart_model extends CI_Model {
 			$this->flexi_cart->insert_items($cart_data);
 		}
 
-		// Save any public status or error messages (Whilst suppressing any admin messages) to CI's flash session data.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 	}
 	
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
@@ -377,8 +377,8 @@ class Demo_cart_model extends CI_Model {
 			$this->flexi_cart->insert_items($cart_data);
 		}
 						
-		// Save any public status or error messages (Whilst suppressing any admin messages) to CI's flash session data.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 	}
 	
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
@@ -535,8 +535,8 @@ class Demo_cart_model extends CI_Model {
 			$this->flexi_cart->insert_items($cart_data);
 		}
 		
-		// Save any public status or error messages (Whilst suppressing any admin messages) to CI's flash session data.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));		
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 	}
 
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
@@ -573,8 +573,8 @@ class Demo_cart_model extends CI_Model {
 		
 		###+++++++++++++++++++++++++++++++++###
 		
-		// Save any public status or error messages (Whilst suppressing any admin messages) to CI's flash session data.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));		
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 	}
 		
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
@@ -695,10 +695,10 @@ class Demo_cart_model extends CI_Model {
 		$this->flexi_cart->update_tax_location($location_id);
 		
 		// Set a custom status message.
-		$this->flexi_cart->set_status_message('Tax successfully updated', TRUE);
+		$this->flexi_cart->set_status_message('Tax successfully updated', 'public');
 
-		// Save any public status or error messages (Whilst suppressing any admin messages) to CI's flash session data.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 		
 		redirect('standard_library');
 	}

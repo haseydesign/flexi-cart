@@ -5,9 +5,9 @@ class Standard_library extends CI_Controller {
 	function __construct() 
 	{
 		parent::__construct();
-		
+
 		// To load the CI benchmark and memory usage profiler - set 1==1.
-		if (1==2) 
+		if (1==2)
 		{
 			$sections = array(
 				'benchmarks' => TRUE, 'memory_usage' => TRUE, 
@@ -105,17 +105,17 @@ class Standard_library extends CI_Controller {
 			// Minimum order value has not been reached, set a custom error message notifying the user.			
 			if (! $this->flexi_cart->minimum_order_status())
 			{
-				$this->flexi_cart->set_error_message('The minimum order value of '.$this->flexi_cart->minimum_order().' has not been reached.', TRUE);
+				$this->flexi_cart->set_error_message('The minimum order value of '.$this->flexi_cart->minimum_order().' has not been reached.', 'public');
 			}
 			
 			// There are no items in the cart that can currently be shipped to the current shipping location, set a custom error message notifying the user.
 			if (! $this->flexi_cart->location_shipping_status(FALSE))
 			{
-				$this->flexi_cart->set_error_message('There are no items in the cart that can currently be shipped to the current shipping location.', TRUE);
+				$this->flexi_cart->set_error_message('There are no items in the cart that can currently be shipped to the current shipping location.', 'public');
 			}
 				
 			// Set a message to the CI flashdata so that it is available after the page redirect.
-			$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+			$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 			
 			redirect('standard_library/view_cart');
 		}
@@ -178,7 +178,7 @@ class Standard_library extends CI_Controller {
 		if (! $this->input->is_ajax_request())
 		{
 			// Set a message to the CI flashdata so that it is available after the page redirect.
-			$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+			$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 					
 			redirect('standard_library/view_cart');
 		}
@@ -196,7 +196,7 @@ class Standard_library extends CI_Controller {
 		$this->flexi_cart->delete_items($row_id);
 		
 		// Set a message to the CI flashdata so that it is available after the page redirect.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 
 		redirect('standard_library/view_cart');		
 	}
@@ -212,7 +212,7 @@ class Standard_library extends CI_Controller {
 		$this->flexi_cart->empty_cart(TRUE);
 
 		// Set a message to the CI flashdata so that it is available after the page redirect.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 
 		redirect('standard_library/view_cart');
 	}
@@ -313,7 +313,7 @@ class Standard_library extends CI_Controller {
 		$this->flexi_cart->update_discount_codes($discount_data);
 		
 		// Set a message to the CI flashdata so that it is available after the page redirect.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 
 		redirect('standard_library/view_cart');
 	}
@@ -349,7 +349,7 @@ class Standard_library extends CI_Controller {
 		$this->flexi_cart->unset_discount($discount_code);
 		
 		// Set a message to the CI flashdata so that it is available after the page redirect.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 
 		redirect('standard_library/view_cart');
 	}
@@ -367,7 +367,7 @@ class Standard_library extends CI_Controller {
 		$this->flexi_cart->unset_discount();		
 		
 		// Set a message to the CI flashdata so that it is available after the page redirect.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 
 		redirect('standard_library/view_cart');
 	}
@@ -385,7 +385,7 @@ class Standard_library extends CI_Controller {
 		$this->flexi_cart->unset_discount($discount_id);
 
 		// Set a message to the CI flashdata so that it is available after the page redirect.
-		$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 		
 		redirect('standard_library/view_cart');
 	}
@@ -441,10 +441,10 @@ class Standard_library extends CI_Controller {
 		// Check whether the cart is empty using the 'cart_status()' function and redirect the user away if necessary.
 		if (! $this->flexi_cart->cart_status())
 		{
-			$this->flexi_cart->set_error_message('You must add an item to the cart before you can checkout.', TRUE);
+			$this->flexi_cart->set_error_message('You must add an item to the cart before you can checkout.', 'public');
 
 			// Set a message to the CI flashdata so that it is available after the page redirect.
-			$this->session->set_flashdata('message', $this->flexi_cart->get_messages(TRUE));
+			$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 			
 			redirect('standard_library/view_cart');
 		}

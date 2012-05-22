@@ -68,7 +68,8 @@ class Demo_cart_admin_model extends CI_Model {
 		{
 			$this->flexi_cart_admin->resave_order();
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages(TRUE));
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			
 			$this->flexi_cart->destroy_cart();
 			
@@ -222,7 +223,8 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());	
 		}
 		else
@@ -264,7 +266,8 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_location_type($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/location_types');
 		}
 		else
@@ -320,7 +323,8 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 		
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());	
 		}
 		else
@@ -371,7 +375,8 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_location($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/locations/'.$location_type_id);
 		}
 		else
@@ -423,7 +428,8 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());
 		}
 		else
@@ -469,7 +475,8 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_location_zone($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/zones');
 		}
 		else
@@ -546,7 +553,8 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());
 		}
 		else
@@ -642,7 +650,8 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_shipping_rate($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/shipping');
 		}
 		else
@@ -702,7 +711,8 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());	
 		}
 		else
@@ -757,7 +767,8 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_shipping_rate($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/shipping_rates/'.$shipping_id);
 		}
 		else
@@ -795,7 +806,8 @@ class Demo_cart_admin_model extends CI_Model {
 			}
 		}
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect(current_url());
 	}
 	
@@ -818,7 +830,8 @@ class Demo_cart_admin_model extends CI_Model {
 			$this->flexi_cart_admin->insert_db_item_shipping($sql_insert);
 		}
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect('admin_library/item_shipping/'.$item_id);
 	}
 
@@ -879,7 +892,8 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());
 		}
 		else
@@ -941,7 +955,8 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_tax($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/tax/');
 		}
 		else
@@ -995,7 +1010,8 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());
 		}
 		else
@@ -1044,7 +1060,8 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_item_tax($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			// Set a message to the CI flashdata so that it is available after the page redirect.
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/item_tax/'.$item_id);
 		}
 		else
@@ -1088,10 +1105,11 @@ class Demo_cart_admin_model extends CI_Model {
 			$this->db->update('demo_items', $sql_update_price, $sql_where_price);
 			
 			// Set a custom status message stating that data has been successfully updated.
-			$this->flexi_cart_admin->set_status_message('Data successfully updated.', TRUE, TRUE);
+			$this->flexi_cart_admin->set_status_message('Data successfully updated.', 'public', TRUE);
 		}
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect(current_url());
 	}
 	
@@ -1131,7 +1149,8 @@ class Demo_cart_admin_model extends CI_Model {
 			}
 		}
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		// Set a message to the CI flashdata so that it is available after the page redirect.
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect(current_url());
 	}
 	
@@ -1177,7 +1196,7 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());
 		}
 		else
@@ -1225,7 +1244,7 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_order_status($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/order_status');
 		}
 		else
@@ -1287,7 +1306,7 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());
 		}
 		else
@@ -1341,7 +1360,7 @@ class Demo_cart_admin_model extends CI_Model {
 				$this->flexi_cart_admin->insert_db_currency($sql_insert);
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/currency');
 		}
 		else
@@ -1374,7 +1393,7 @@ class Demo_cart_admin_model extends CI_Model {
 			}
 		}
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect(current_url());
 	}
 	
@@ -1450,13 +1469,13 @@ class Demo_cart_admin_model extends CI_Model {
 				// Update was successful, redirect.
 				$redirect_page = ($row['type'] == 1) ? 'item_discounts' : 'summary_discounts';
 				
-				$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+				$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 				redirect('admin_library/'.$redirect_page);
 			}
 			else
 			{
 				// Set errors.
-				$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+				$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 				redirect(current_url());
 			}
 		}
@@ -1540,7 +1559,7 @@ class Demo_cart_admin_model extends CI_Model {
 			
 			$redirect_page = ($row['type'] == 1) ? 'item_discounts' : 'summary_discounts';
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/'.$redirect_page);
 		}
 		else
@@ -1589,7 +1608,7 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());
 		}
 		else
@@ -1637,7 +1656,7 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect(current_url());
 		}
 		else
@@ -1720,7 +1739,7 @@ class Demo_cart_admin_model extends CI_Model {
 					}
 				}
 				
-				$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+				$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 				redirect('admin_library/update_discount_group/'.$group_id);
 			}
 			else
@@ -1805,7 +1824,7 @@ class Demo_cart_admin_model extends CI_Model {
 				}
 			}
 			
-			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+			$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 			redirect('admin_library/update_discount_group/'.$group_id);
 		}
 		else
@@ -1933,7 +1952,7 @@ class Demo_cart_admin_model extends CI_Model {
 			$this->flexi_cart_admin->update_db_voucher($sql_update, $row['id']);
 		}
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect(current_url());
 	}
 	
@@ -1948,7 +1967,7 @@ class Demo_cart_admin_model extends CI_Model {
 	
 		$this->flexi_cart_admin->insert_db_voucher($user_id, $points_to_convert);
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect('admin_library/user_vouchers/'.$user_id);
 	}
 
@@ -1995,7 +2014,7 @@ class Demo_cart_admin_model extends CI_Model {
 		$this->load->library('flexi_cart');
 		$this->flexi_cart->destroy_cart();
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect(current_url());
 	}
 	
@@ -2041,7 +2060,7 @@ class Demo_cart_admin_model extends CI_Model {
 		
 		###+++++++++++++++++++++++++++++++++###
 		
-		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages());
+		$this->session->set_flashdata('message', $this->flexi_cart_admin->get_messages('admin'));
 		redirect(current_url());
 	}
 }

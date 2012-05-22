@@ -25,6 +25,12 @@ class Lite_library extends CI_Controller {
  		$this->load->helper('url');
  		$this->load->helper('form');
 
+ 		// Example of defining a specific language to return flexi carts status and error messages.
+ 		// The defined language file must be added to the CI application directory as 'application/language/[language_name]/flexi_cart_lang.php'.
+ 		// Alternatively, CI's default language can be set via the CI config. file.
+ 		// Note: This must be defined before $this->load->library('flexi_cart').
+ 		# $this->lang->load('flexi_cart', 'spanish');
+
 		// Load 'lite' flexi cart library by default.
 		// If preferable, functions from this library can be referenced by another name like 'flexi_cart' or 'flexi_cart_admin', as done below.
 		// Note: Renaming the library should not be done when loading the 'flexi_cart' or 'flexi_cart_admin' libraries.
