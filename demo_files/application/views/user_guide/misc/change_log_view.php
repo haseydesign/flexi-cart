@@ -55,6 +55,7 @@
 						<p>This functionality has been defined via the libraries config. file and can be found via the <code>$config['messages']['target_user']</code> settings.</p>
 						<hr/>
 						<p>For further clarity, when using the libraries functions to set and return status and error messages, each message function now requires that either 'public' or 'admin' is defined as the 'target_user'.</p>
+						<p>The functions affected by this update are: <code>status_messages()</code>, <code>set_status_message()</code>, <code>error_messages()</code>, <code>set_error_message()</code>, <code>get_messages_array()</code> and <code>get_messages()</code></p>
 						<p>The <a href="<?php echo $base_url; ?>user_guide/cart_set_data">user guide</a> has been updated to reflect these changes.</p>
 					</li>
 				</ul>
