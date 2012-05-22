@@ -874,137 +874,128 @@ class Flexi_cart_lite_model extends CI_Model
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
 	// MESSAGES AND ERRORS
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
+
+	/**
+	 * set_message
+	 * Set a status or error message to be displayed.
+	 */
+	private function set_message($message_type = FALSE, $message = FALSE, $target_user = 'public', $overwrite_existing = FALSE)
+	{
+		if (in_array($message_type, array('status', 'error')) && $message)
+		{
+			// Convert the target user to lowercase to ensure whether comparison values are matched. 
+			$target_user = strtolower($target_user);
+
+			// Check whether to use the target user set via the config file.
+			if ($target_user === 'config' && isset($this->flexi->message_settings['target_user'][$message]))
+			{
+				$target_user = $this->flexi->message_settings['target_user'][$message];
+			}
+
+			// If $target_user exactly equals TRUE, set the target user as public.
+			$target_user = ($target_user === TRUE) ? 'public' : $target_user;
+
+			// Check whether a message should be set, if FALSE is defined, do not set the message.
+			if (in_array($target_user, array('public', 'admin')))
+			{
+				$message_alias = ($message_type == 'status') ? 'status_messages' : 'error_messages';
+				
+				// Check whether to overwrite existing messages.
+				if ($overwrite_existing)
+				{
+					$this->flexi->{$message_alias} = array('public' => array(), 'admin' => array());
+				}
+
+				// Check message is not already in array to avoid displaying duplicates.
+				if (! in_array($message, $this->flexi->{$message_alias}[$target_user]))
+				{
+					$this->flexi->{$message_alias}[$target_user][] = $message;
+				}
+			}
+		}
+			
+		return $message;
+	}
 	
 	/**
 	 * set_status_message
 	 * Set a status message to be displayed.
 	 */
-	public function set_status_message($status_message = FALSE, $public_message = FALSE, $overwrite_existing = FALSE)
+	public function set_status_message($status_message = FALSE, $target_user = 'public', $overwrite_existing = FALSE)
 	{
-		if ($status_message)
-		{
-			// Check whether to use the message status set via the config file, or a manually submitted boolean value.
-			if ($public_message === 'config')
-			{
-				$public_message = (isset($this->flexi->message_settings['public_status'][$status_message])) ? $this->flexi->message_settings['public_status'][$status_message] : FALSE;
-			}
-			
-			// Set message to either the public or admin array.
-			$message_type = ($public_message) ? 'public' : 'admin';
-			
-			// Check whether to overwrite existing messages.
-			if ($overwrite_existing)
-			{
-				$this->flexi->status_messages = array('public' => array(), 'admin' => array());
-			}
-			
-			// Check message is not already in array to avoid displaying duplicates.
-			if (! in_array($status_message, $this->flexi->status_messages[$message_type]))
-			{
-				$this->flexi->status_messages[$message_type][] = $status_message;
-			}
-		}
-			
-		return $status_message;
+		return $this->set_message('status', $status_message, $target_user, $overwrite_existing);
 	}
-
-	###+++++++++++++++++++++++++++++++++###
-		
-	/**
-	 * status_messages
-	 * Get any status message(s) that may have been set by recently run functions. 
-	 */
-	public function status_messages($public_message = FALSE, $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
-	{	
-		// Set message delimiters, by checking they do not exactly equal FALSE, we can allow NULL or empty '' delimiter values. 
-		$status_prefix_delimiter = ($prefix_delimiter !== FALSE) ? $prefix_delimiter : $this->flexi->message_settings['delimiters']['status_prefix'];
-		$status_suffix_delimiter = ($suffix_delimiter !== FALSE) ? $suffix_delimiter : $this->flexi->message_settings['delimiters']['status_suffix'];
-		
-		// Get all messages for public, admin or both.
-		if ($public_message)
-		{
-			$status_messages = $this->flexi->status_messages['public'];
-		}
-		else
-		{
-			$status_messages = array_merge($this->flexi->status_messages['public'], $this->flexi->status_messages['admin']);
-		}
-		
-		$statuses = FALSE;
-		foreach ($status_messages as $status_message)
-		{
-			$message = ($this->lang->line($status_message)) ? $this->lang->line($status_message) : $status_message;
-			$statuses .= $status_prefix_delimiter . $message . $status_suffix_delimiter;
-		}
-		
-		return $statuses;
-	}
-
-	###+++++++++++++++++++++++++++++++++###
 
 	/**
 	 * set_error_message
 	 * Set an error message to be displayed.
 	 */
-	public function set_error_message($error_message = FALSE, $public_message = FALSE, $overwrite_existing = FALSE)
+	public function set_error_message($error_message = FALSE, $target_user = 'public', $overwrite_existing = FALSE)
 	{
-		if ($error_message)
-		{
-			// Check whether to use the message status set via the config file, or a manually submitted boolean value.
-			if ($public_message === 'config')
-			{
-				$public_message = (isset($this->flexi->message_settings['public_status'][$error_message])) ? $this->flexi->message_settings['public_status'][$error_message] : FALSE;
-			}
-			
-			// Set message to either the public or admin array.
-			$message_type = ($public_message) ? 'public' : 'admin';
-			
-			// Check whether to overwrite existing messages.
-			if ($overwrite_existing)
-			{
-				$this->flexi->error_messages = array('public' => array(), 'admin' => array());
-			}
-
-			// Check error is not already in array to avoid displaying duplicates.
-			if (! in_array($error_message, $this->flexi->error_messages[$message_type]))
-			{
-				$this->flexi->error_messages[$message_type][] = $error_message;
-			}
-		}
-		
-		return $error_message;
+		return $this->set_message('error', $error_message, $target_user, $overwrite_existing);
 	}
 
 	###+++++++++++++++++++++++++++++++++###
+		
+	/**
+	 * get_messages
+	 * Get any status or error message(s) that may have been set by recently run functions. 
+	 */
+	private function get_messages($message_type = FALSE, $target_user = 'public', $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
+	{	
+		if (in_array($message_type, array('status', 'error')))
+		{
+			// If $target_user exactly equals TRUE, set the target user as public.
+			$target_user = ($target_user === TRUE) ? 'public' : $target_user;
+
+			// Convert the target user to lowercase to ensure whether comparison values are matched. 
+			$target_user = strtolower($target_user);
+
+			// Set message delimiters, by checking they do not exactly equal FALSE, we can allow NULL or empty '' delimiter values. 
+			$status_prefix_delimiter = ($prefix_delimiter !== FALSE) ? $prefix_delimiter : $this->flexi->message_settings['delimiters']['status_prefix'];
+			$status_suffix_delimiter = ($suffix_delimiter !== FALSE) ? $suffix_delimiter : $this->flexi->message_settings['delimiters']['status_suffix'];
+			
+			$message_alias = ($message_type == 'status') ? 'status_messages' : 'error_messages';
+
+			// Get all messages for public users, or both public AND admin users.
+			if ($target_user === 'public')
+			{
+				$messages = $this->flexi->{$message_alias}['public'];
+			}
+			else
+			{
+				$messages = array_merge($this->flexi->{$message_alias}['public'], $this->flexi->{$message_alias}['admin']);
+			}
+			
+			$statuses = FALSE;
+			foreach ($messages as $message)
+			{
+				$message = ($this->lang->line($message)) ? $this->lang->line($message) : $message;
+				$statuses .= $status_prefix_delimiter . $message . $status_suffix_delimiter;
+			}
+			
+			return $statuses;
+		}
+
+		return FALSE;
+	}
+
+	/**
+	 * status_messages
+	 * Get any status message(s) that may have been set by recently run functions.
+	 */
+	public function status_messages($target_user = 'public', $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
+	{
+		return $this->get_messages('status', $target_user, $prefix_delimiter, $suffix_delimiter);
+	}
 
 	/**
 	 * error_messages
 	 * Get any error message(s) that may have been set by recently run functions.
 	 */
-	public function error_messages($public_message = FALSE, $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
+	public function error_messages($target_user = 'public', $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
 	{
-		// Set message delimiters, by checking they do not exactly equal FALSE, we can allow NULL or empty '' delimiter values. 
-		$error_prefix_delimiter = ($prefix_delimiter !== FALSE) ? $prefix_delimiter : $this->flexi->message_settings['delimiters']['error_prefix'];
-		$error_suffix_delimiter = ($suffix_delimiter !== FALSE) ? $suffix_delimiter : $this->flexi->message_settings['delimiters']['error_suffix'];
-
-		// Get all messages for public, admin or both.
-		if ($public_message)
-		{
-			$error_messages = $this->flexi->error_messages['public'];
-		}
-		else
-		{
-			$error_messages = array_merge($this->flexi->error_messages['public'], $this->flexi->error_messages['admin']);
-		}
-		
-		$errors = FALSE;
-		foreach ($error_messages as $error_message)
-		{
-			$message = ($this->lang->line($error_message)) ? $this->lang->line($error_message) : $error_message;
-			$errors .= $error_prefix_delimiter . $message . $error_suffix_delimiter;
-		}
-
-		return $errors;
+		return $this->get_messages('error', $target_user, $prefix_delimiter, $suffix_delimiter);
 	}
 
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	

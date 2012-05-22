@@ -1088,94 +1088,94 @@
 
 	/**
 	 * Public and Admin Messages
-	 * Define which status and error messages are returned as public or admin messages.
-	 * Public messages are intended to be displayed to public users, whilst admin messages are intended for admin users only.
+	 * Define which status and error messages are returned as public or admin messages, or which messages are not returned at all.
+	 * Public messages are intended to be displayed to public and admin users, whilst admin messages are intended for admin users only.
 	 *
 	 * Example:
-	 * Public message = $config['messages']['public_status']['items_added_successfully'] = TRUE;
-	 * Admin Only message = $config['messages']['public_status']['items_added_successfully'] = FALSE;
+	 * Public and admin message = $config['messages']['target_user']['items_added_successfully'] = 'public';
+	 * Admin only message = $config['messages']['target_user']['items_added_successfully'] = 'admin';
+	 * Do NOT set public or admin message = $config['messages']['target_user']['items_added_successfully'] = FALSE;
 	 */ 
 	 
 	// Cart Item functions
-	$config['messages']['public_status']['items_added_successfully'] = TRUE;
-	$config['messages']['public_status']['no_items_added'] = TRUE;
-	$config['messages']['public_status']['items_updated_successfully'] = TRUE;
-	$config['messages']['public_status']['no_items_updated'] = TRUE;
-	$config['messages']['public_status']['items_deleted_successfully'] = TRUE;
+	$config['messages']['target_user']['items_added_successfully'] = 'public';
+	$config['messages']['target_user']['no_items_added'] = 'public';
+	$config['messages']['target_user']['items_updated_successfully'] = 'public';
+	$config['messages']['target_user']['no_items_updated'] = 'public';
+	$config['messages']['target_user']['items_deleted_successfully'] = 'public';
 	
 	// Validate Item data 
-	$config['messages']['public_status']['invalid_data'] = FALSE;
-	$config['messages']['public_status']['invalid_item_id'] = FALSE;
-	$config['messages']['public_status']['invalid_item_name'] = FALSE;
-	$config['messages']['public_status']['invalid_item_quantity'] = FALSE;
-	$config['messages']['public_status']['invalid_item_price'] = FALSE;
-	$config['messages']['public_status']['invalid_custom_data'] = FALSE;
+	$config['messages']['target_user']['invalid_data'] = 'admin';
+	$config['messages']['target_user']['invalid_item_id'] = 'admin';
+	$config['messages']['target_user']['invalid_item_name'] = 'admin';
+	$config['messages']['target_user']['invalid_item_quantity'] = 'admin';
+	$config['messages']['target_user']['invalid_item_price'] = 'admin';
+	$config['messages']['target_user']['invalid_custom_data'] = 'admin';
 	
 	// Item Statuses
 	// Note: The language file values 'item_stock_insufficient', 'item_stock_insufficient_adjusted', 'item_out_of_stock' and 'item_shipping_location_ban' are not
 	// sitewide status or error messages, and so cannot be set as public or admin. They are instead set to the related cart item data.
-	$config['messages']['public_status']['item_out_of_stock_removed'] = TRUE;
-	$config['messages']['public_status']['item_shipping_banned'] = FALSE;
+	$config['messages']['target_user']['item_out_of_stock_removed'] = 'public';
+	$config['messages']['target_user']['item_shipping_banned'] = 'admin';
 	
 	// Shipping
-	$config['messages']['public_status']['shipping_location_updated_successfully'] = FALSE;
-	$config['messages']['public_status']['shipping_location_update_unsuccessful'] = FALSE;
-	$config['messages']['public_status']['shipping_updated_successfully'] = FALSE;
-	$config['messages']['public_status']['shipping_update_unsuccessful'] = FALSE;
+	$config['messages']['target_user']['shipping_location_updated_successfully'] = 'admin';
+	$config['messages']['target_user']['shipping_location_update_unsuccessful'] = 'admin';
+	$config['messages']['target_user']['shipping_updated_successfully'] = 'admin';
+	$config['messages']['target_user']['shipping_update_unsuccessful'] = 'admin';
 	
 	// Tax
-	$config['messages']['public_status']['tax_location_updated_successfully'] = FALSE;
-	$config['messages']['public_status']['tax_location_update_unsuccessful'] = FALSE;
-	$config['messages']['public_status']['tax_updated_successfully'] = FALSE;
-	$config['messages']['public_status']['tax_update_unsuccessful'] = FALSE;
+	$config['messages']['target_user']['tax_location_updated_successfully'] = 'admin';
+	$config['messages']['target_user']['tax_location_update_unsuccessful'] = 'admin';
+	$config['messages']['target_user']['tax_updated_successfully'] = 'admin';
+	$config['messages']['target_user']['tax_update_unsuccessful'] = 'admin';
 	
 	// Discounts
-	$config['messages']['public_status']['discounts_updated_successfully'] = TRUE;
-	$config['messages']['public_status']['discount_update_unsuccessful'] = TRUE;
-	$config['messages']['public_status']['discount_codes_valid'] = TRUE;
-	$config['messages']['public_status']['discount_codes_invalid'] = TRUE;
-	$config['messages']['public_status']['discount_unset_successfully'] = TRUE;
-	$config['messages']['public_status']['discount_unset_unsuccessful'] = TRUE;
-	$config['messages']['public_status']['excluded_discount_reenabled'] = TRUE;
-	// This message is set when a duplicate discount code is either inserted or updated to the database table.
-	$config['messages']['public_status']['duplicate_discount_code'] = FALSE; 
+	$config['messages']['target_user']['discounts_updated_successfully'] = 'public';
+	$config['messages']['target_user']['discount_update_unsuccessful'] = 'public';
+	$config['messages']['target_user']['discount_codes_valid'] = 'public';
+	$config['messages']['target_user']['discount_codes_invalid'] = 'public';
+	$config['messages']['target_user']['discount_unset_successfully'] = 'public';
+	$config['messages']['target_user']['discount_unset_unsuccessful'] = 'public';
+	$config['messages']['target_user']['excluded_discount_reenabled'] = 'public';
+	$config['messages']['target_user']['duplicate_discount_code'] = 'admin'; // Set if duplicate discount code is inserted/updated to the db.
 
 	// Surcharges
-	$config['messages']['public_status']['surcharge_updated_successfully'] = FALSE;
-	$config['messages']['public_status']['surcharge_update_unsuccessful'] = FALSE;
-	$config['messages']['public_status']['surcharge_unset_successful'] = FALSE;
-	$config['messages']['public_status']['surcharge_unset_unsuccessful'] = FALSE;
+	$config['messages']['target_user']['surcharge_updated_successfully'] = 'admin';
+	$config['messages']['target_user']['surcharge_update_unsuccessful'] = 'admin';
+	$config['messages']['target_user']['surcharge_unset_successful'] = 'admin';
+	$config['messages']['target_user']['surcharge_unset_unsuccessful'] = 'admin';
 
 	// Currency
-	$config['messages']['public_status']['currency_updated_successfully'] = TRUE;
-	$config['messages']['public_status']['currency_update_unsuccessful'] = TRUE;
+	$config['messages']['target_user']['currency_updated_successfully'] = 'public';
+	$config['messages']['target_user']['currency_update_unsuccessful'] = 'public';
 
 	// Save Order
-	$config['messages']['public_status']['cart_order_save_successful'] = TRUE;
-	$config['messages']['public_status']['cart_order_save_unsuccessful'] = TRUE;
-	$config['messages']['public_status']['resave_order_does_not_exist'] = FALSE;
-	$config['messages']['public_status']['order_number_exists'] = FALSE;
+	$config['messages']['target_user']['cart_order_save_successful'] = 'public';
+	$config['messages']['target_user']['cart_order_save_unsuccessful'] = 'public';
+	$config['messages']['target_user']['resave_order_does_not_exist'] = 'admin';
+	$config['messages']['target_user']['order_number_exists'] = 'admin';
 
 	// Database Cart Data
-	$config['messages']['public_status']['cart_data_save_successful'] = TRUE;
-	$config['messages']['public_status']['cart_data_save_unsuccessful'] = TRUE;
-	$config['messages']['public_status']['cart_data_load_successful'] = TRUE;
-	$config['messages']['public_status']['cart_data_load_unsuccessful'] = TRUE;
-	$config['messages']['public_status']['cart_data_delete_successful'] = TRUE;
-	$config['messages']['public_status']['cart_data_delete_unsuccessful'] = TRUE;
+	$config['messages']['target_user']['cart_data_save_successful'] = 'public';
+	$config['messages']['target_user']['cart_data_save_unsuccessful'] = 'public';
+	$config['messages']['target_user']['cart_data_load_successful'] = 'public';
+	$config['messages']['target_user']['cart_data_load_unsuccessful'] = 'public';
+	$config['messages']['target_user']['cart_data_delete_successful'] = 'public';
+	$config['messages']['target_user']['cart_data_delete_unsuccessful'] = 'public';
 
 	// Misc Settings
-	$config['messages']['public_status']['send_email_successful'] = TRUE;
-	$config['messages']['public_status']['send_email_unsuccessful'] = TRUE;
-	$config['messages']['public_status']['database_table_column_disabled'] = FALSE;
-	$config['messages']['public_status']['cart_emptied'] = TRUE;
-	$config['messages']['public_status']['cart_destroyed'] = TRUE;
+	$config['messages']['target_user']['send_email_successful'] = 'public';
+	$config['messages']['target_user']['send_email_unsuccessful'] = 'public';
+	$config['messages']['target_user']['database_table_column_disabled'] = 'admin';
+	$config['messages']['target_user']['cart_emptied'] = 'public';
+	$config['messages']['target_user']['cart_destroyed'] = 'public';
 
 	// Data Updated
-	$config['messages']['public_status']['session_config_data_updated'] = FALSE;
-	$config['messages']['public_status']['database_data_inserted'] = FALSE;
-	$config['messages']['public_status']['database_data_updated'] = FALSE;
-	$config['messages']['public_status']['database_data_deleted'] = FALSE;	
+	$config['messages']['target_user']['session_config_data_updated'] = 'admin';
+	$config['messages']['target_user']['database_data_inserted'] = 'admin';
+	$config['messages']['target_user']['database_data_updated'] = 'admin';
+	$config['messages']['target_user']['database_data_deleted'] = 'admin';	
 		
 /* End of file flexi_cart.php */
 /* Location: ./system/application/config/flexi_cart.php */

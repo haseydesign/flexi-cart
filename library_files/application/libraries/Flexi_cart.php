@@ -109,7 +109,7 @@ class Flexi_cart extends Flexi_cart_lite
 			$this->CI->flexi_cart_model->set_error_message('invalid_data', 'config');
 			return FALSE;
 		}
-		
+
 		$recalculate_cart = $force_recalculate;
 
 		if (is_array($item_data) && ! empty($item_data))

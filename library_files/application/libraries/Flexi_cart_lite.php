@@ -2556,9 +2556,9 @@ class Flexi_cart_lite
 	 * set_status_message
 	 * Set a status message to be displayed to the user.
 	 */	
-	public function set_status_message($status_message = FALSE, $public_message = FALSE, $overwrite_existing = FALSE)
+	public function set_status_message($status_message = FALSE, $target_user = 'public', $overwrite_existing = FALSE)
 	{
-		return $this->CI->flexi_cart_lite_model->set_status_message($status_message, $public_message, $overwrite_existing);
+		return $this->CI->flexi_cart_lite_model->set_status_message($status_message, $target_user, $overwrite_existing);
 	}
 	
 	/**
@@ -2575,18 +2575,18 @@ class Flexi_cart_lite
 	 * status_messages
 	 * Get any status message(s) that may have been set by recently run functions. 
 	 */
-	public function status_messages($public_message = FALSE, $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
+	public function status_messages($target_user = 'public', $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
 	{
-		return $this->CI->flexi_cart_lite_model->status_messages($public_message, $prefix_delimiter, $suffix_delimiter);
+		return $this->CI->flexi_cart_lite_model->status_messages($target_user, $prefix_delimiter, $suffix_delimiter);
 	}
 
 	/**
 	 * set_error_message
 	 * Set an error message to be displayed to the user.
 	 */
-	public function set_error_message($error_message = FALSE, $public_message = FALSE, $overwrite_existing = FALSE)
+	public function set_error_message($error_message = FALSE, $target_user = 'public', $overwrite_existing = FALSE)
 	{
-		return $this->CI->flexi_cart_lite_model->set_error_message($error_message, $public_message, $overwrite_existing);
+		return $this->CI->flexi_cart_lite_model->set_error_message($error_message, $target_user, $overwrite_existing);
 	}
 	
 	/**
@@ -2603,9 +2603,9 @@ class Flexi_cart_lite
 	 * error_messages
 	 * Get any error message(s) that may have been set by recently run functions. 
 	 */
-	public function error_messages($public_message = FALSE, $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
+	public function error_messages($target_user = 'public', $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
 	{
-		return $this->CI->flexi_cart_lite_model->error_messages($public_message, $prefix_delimiter, $suffix_delimiter);
+		return $this->CI->flexi_cart_lite_model->error_messages($target_user, $prefix_delimiter, $suffix_delimiter);
 	}
 	
 	/**
@@ -2624,11 +2624,11 @@ class Flexi_cart_lite
 	 * Get any operational function messages and groups them into a status and error array.
 	 * An additional array key named 'type' is also returned to clearly indicate which message types are returned.
 	 */
-	public function get_messages_array($public_message = FALSE, $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
+	public function get_messages_array($target_user = 'public', $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
 	{
-		$messages['status'] = $this->CI->flexi_cart_lite_model->status_messages($public_message, $prefix_delimiter, $suffix_delimiter);
+		$messages['status'] = $this->CI->flexi_cart_lite_model->status_messages($target_user, $prefix_delimiter, $suffix_delimiter);
 
-		$messages['errors'] = $this->CI->flexi_cart_lite_model->error_messages($public_message, $prefix_delimiter, $suffix_delimiter);
+		$messages['errors'] = $this->CI->flexi_cart_lite_model->error_messages($target_user, $prefix_delimiter, $suffix_delimiter);
 		
 		// Set a message type identifier to state whether they are either status, error or mixed messages.
 		if (! empty($messages['status']) && empty($messages['errors']))
@@ -2656,9 +2656,9 @@ class Flexi_cart_lite
 	 * get_messages
 	 * Get any operational function messages whether of status or error type and format their output with delimiters.
 	 */
-	public function get_messages($public_message = FALSE, $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
+	public function get_messages($target_user = 'public', $prefix_delimiter = FALSE, $suffix_delimiter = FALSE)
 	{
-		$messages = $this->get_messages_array($public_message, $prefix_delimiter, $suffix_delimiter);
+		$messages = $this->get_messages_array($target_user, $prefix_delimiter, $suffix_delimiter);
 		
 		return ($messages) ? $messages['status'].$messages['errors'] : FALSE;
 	}	
