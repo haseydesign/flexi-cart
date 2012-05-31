@@ -6,9 +6,9 @@
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>Libraries | User Guide | flexi cart | A Shopping Cart Library for CodeIgniter</title>
-	<meta name="description" content="The user guide for flexi carts libraries."/> 
-	<meta name="keywords" content="library, libraries, user guide, flexi cart, shopping cart, codeigniter"/>
+	<title>Conception | User Guide | flexi cart | A Shopping Cart Library for CodeIgniter</title>
+	<meta name="description" content="The principle ideas of how flexi cart works."/> 
+	<meta name="keywords" content="conception, user guide, flexi cart, shopping cart, codeigniter"/>
 	<?php $this->load->view('includes/head'); ?> 
 </head>
 
@@ -54,7 +54,7 @@
 			<div class="w100 frame">
 				<h3 class="heading">Library File Structure</h3>
 
-				<p>The complete flexi cart library is controlled via several files, a config file, 3 library files, 3 model files and language files.</p>
+				<p>The complete flexi cart library is controlled via several files, a config file, 3 library files, 3 model files and multiple language files.</p>
 				<ul>
 					<li>The config file as you would expect controls the entire configuration of flexi cart, defining cart column names, database tables and cart behaviour settings.</li>
 					<li>
@@ -66,7 +66,7 @@
 						</ul>
 						Read the <a href="<?php echo $base_url; ?>user_guide/library_info">library documentation</a> for further information on flexi carts library files.
 					</li>
-					<li>The language files (Only English at launch) are used to translate cart status and error messages based on a users location.</li>
+					<li>The language files are used to translate cart status and error messages based on a users location.</li>
 				</ul>
 			</div>
 

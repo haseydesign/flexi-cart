@@ -7,8 +7,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Installation Guide | flexi cart | A Shopping Cart Library for CodeIgniter</title>
-	<meta name="description" content="The user guide for querying results from flexi cart functions."/> 
-	<meta name="keywords" content="query results, active record, user guide, flexi cart, shopping cart, codeigniter"/>
+	<meta name="description" content="The user guide for installing the flexi cart library."/> 
+	<meta name="keywords" content="isntallation guide, user guide, flexi cart, shopping cart, codeigniter"/>
 	<?php $this->load->view('includes/head'); ?> 
 </head>
 
@@ -116,7 +116,7 @@
 							<strong>config</strong> : 'flexi_cart.php'.
 						</li>
 						<li>
-							<strong>lanaguge</strong> : 'english/flexi_cart_lang.php'.  
+							<strong>lanaguge</strong> : 'english/flexi_cart_lang.php', (Plus any other language files...).  
 						</li>
 						<li>
 							<strong>libraries</strong> : 'flexi_cart.php', 'flexi_cart_lite.php' and 'flexi_cart_admin.php'.  
@@ -127,7 +127,7 @@
 					</ul>
 					<hr/>
 					<strong>Installing Demo Files</strong>
-					<p>To install the flexi cart demo, install the essential library files as described above, then also copy the 'application' and 'includes' folder from 'demo_files' to the root Codeigniter folder.<br/></p>				
+					<p>To install the flexi cart demo, install the essential library files as described above, then also copy the 'application' and 'includes' folder from 'demo_files' to the root Codeigniter folder.</p>				
 					<p>The <span class="unline">'demo_files'</span> folder includes three folders in the root directory, 'application', 'includes', 'sql_dump' and a '.htaccess' file.</p>
 					<p>The 'application' folder contains the following folders and files:</p>
 					<ul>
