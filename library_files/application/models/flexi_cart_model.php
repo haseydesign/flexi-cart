@@ -2057,7 +2057,8 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 				// Else, default values need to be set.
 				else
 				{
-					$value = (! empty($this->flexi->cart_defaults['shipping'][$column])) ? $this->flexi->cart_defaults['shipping'][$column] : $data;
+					$value = (! empty($this->flexi->cart_defaults['shipping'][$column]) || $this->non_negative($this->flexi->cart_defaults['shipping'][$column])) ? 
+						$this->flexi->cart_defaults['shipping'][$column] : $data;
 					
 					$this->flexi->cart_contents['settings']['shipping'][$column] = $value;
 				}
