@@ -36,6 +36,15 @@
 		<div class="content clearfix">
 			
 			<div class="w100 frame">
+				<h3 class="heading">Version Beta 1.0.2</h3>
+				<h6>Release Date 9th August 2012</h6>
+				<hr/>
+				<ul>
+					<li>Minor bug fix for PHP warning of 'Warning Message: Creating default object from empty value'.</li>
+				</ul>
+			</div>
+
+			<div class="w100 frame">
 				<h3 class="heading">Version Beta 1.0.1</h3>
 				<h6>Release Date 22nd May 2012</h6>
 				<hr/>

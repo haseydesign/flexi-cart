@@ -38,6 +38,7 @@ class Flexi_cart_lite_model extends CI_Model
 		###+++++++++++++++++++++++++++++++++###
 
 		// Cart session contains items, row-summaries, summaries and settings.
+		$this->flexi = new stdClass();
 		$this->flexi->cart = $this->config->item('cart','flexi_cart');
 		$this->flexi->cart_columns = array_merge($this->flexi->cart['items']['columns'], $this->flexi->cart['items']['reserved_columns']);
 		
