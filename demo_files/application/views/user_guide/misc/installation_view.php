@@ -45,7 +45,7 @@
 				<p class="highlight_red">Note that some of the steps listed below may not need to be completed if the flexi cart library is being installed to to a previously setup CodeIgniter installation.</p>
 				<hr/>
 				
-				<h6>Update the 'config/config.php' file</h6>
+				<h6>Update the 'config/config.php' file [All Installations]</h6>
 				<div class="frame_note">
 					<p>The following steps may not need to be applied to a previous CodeIgniter installation.</p>
 					<ul>
@@ -81,7 +81,7 @@
 					</ul>
 				</div>
 				
-				<h6>Update the 'config/database.php' file</h6>
+				<h6>Update the 'config/database.php' file [All Installations]</h6>
 				<div class="frame_note">
 					<p>This step must be completed if a database has not been configured with your CodeIgniter installation.</p>
 					<ul>
@@ -91,7 +91,7 @@
 					</ul>
 				</div>
 				
-				<h6>Update the 'config/routes.php' file</h6>
+				<h6>Update the 'config/routes.php' file [Demo only]</h6>
 				<div class="frame_note">
 					<p>This step is only required if you are installing the flexi cart demo.</p>
 					<ul>
@@ -102,7 +102,7 @@
 					</ul>
 				</div>
 				
-				<h6>Copy flexi cart files to CodeIgniter installation</h6>
+				<h6>Copy flexi cart files to CodeIgniter installation [All Installations]</h6>
 				<div class="frame_note">
 					<p>The flexi cart repository is split into two sections, essential 'library files', and optional 'demo files'.</p>
 					<p>If you wish to install the demo, you will need to install both the 'library files' and the 'demo files'.</p>
@@ -155,7 +155,7 @@
 					</ul>
 				</div>
 		
-				<h6>Update the '.htaccess' root CodeIgniter directory</h6>
+				<h6>Update the '.htaccess' root CodeIgniter directory [Demo / Optional]</h6>
 				<div class="frame_note">
 					<p>
 						If installing the flexi cart demo to a new CodeIgniter installation, you may wish to also copy the '.htaccess' file to the root CodeIgniter directory.<br/>
@@ -167,8 +167,21 @@
 						Then the '.htaccess' file should be updated to <code>RewriteBase /your_codeigniter_directory/</code>.
 					</p>
 				</div>
+		
+				<h6>Define the global cart class [All installations]</h6>
+				<div class="frame_note">
+					<p>
+						For all flexi cart installations, it is important that a global cart class must be defined within all controllers loading the flexi cart library.<br/>
+						<span class="uline">The global must be named exactly as stated below and must be defined prior to loading the library.</span>
+					</p>
+					<p>
+						<strong>Example</strong><br/>
+						<code>$this->flexi = new stdClass;</code><br/>
+						<code>$this->load->library('flexi_cart');</code>.
+					</p>
+				</div>
 
-				<h6>Update 'base_url' and 'includes_dir' vars</h6>
+				<h6>Update 'base_url' and 'includes_dir' vars [Demo only]</h6>
 				<div class="frame_note">
 					<p>If installing the flexi cart demo, the directories of the 'base_url' and 'includes_dir' vars need to be updated for the demo files to work correctly.</p>
 					<p>
@@ -182,7 +195,7 @@
 					<p>The 'base_url' must refer to CodeIgniters root installation directory. 'includes_dir' must refer to the demo 'includes' folder.</p>
 				</div>
 				
-				<h6>Import SQL database dump</h6>
+				<h6>Import SQL database dump [All installations]</h6>
 				<div class="frame_note">
 					<p>Import the SQL database dump file included with the flexi cart installation to your database.</p>
 					<p>If you are installing only the library files, install the sql dump within the 'library_files' folder. If installing the demo, install sql dump within the 'demo_files' folder.</p>

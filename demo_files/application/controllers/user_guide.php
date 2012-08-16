@@ -25,6 +25,10 @@ class User_guide extends CI_Controller {
  		$this->load->helper('url');
  		$this->load->helper('form');
 
+ 		// IMPORTANT! This global must be defined BEFORE the flexi cart library is loaded! 
+ 		// It is used as a global that is accessible via both models and both libraries, without it, flexi cart will not work.
+		$this->flexi = new stdClass;
+
 		// Load 'standard' flexi cart library by default.
 		$this->load->library('flexi_cart');	
 

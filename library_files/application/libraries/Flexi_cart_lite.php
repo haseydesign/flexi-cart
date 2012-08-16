@@ -33,7 +33,6 @@ class Flexi_cart_lite
 		$this->CI =& get_instance();
 		
 		$this->CI->load->model('flexi_cart_lite_model');
-		$this->CI->flexi = $this->CI->flexi_cart_lite_model->flexi;
 	}
 
 	public function __call($method, $arguments) 

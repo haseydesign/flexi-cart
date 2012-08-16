@@ -31,6 +31,10 @@ class Lite_library extends CI_Controller {
  		// Note: This must be defined before $this->load->library('flexi_cart').
  		# $this->lang->load('flexi_cart', 'spanish');
 
+ 		// IMPORTANT! This global must be defined BEFORE the flexi cart library is loaded! 
+ 		// It is used as a global that is accessible via both models and both libraries, without it, flexi cart will not work.
+		$this->flexi = new stdClass;
+
 		// Load 'lite' flexi cart library by default.
 		// If preferable, functions from this library can be referenced by another name like 'flexi_cart' or 'flexi_cart_admin', as done below.
 		// Note: Renaming the library should not be done when loading the 'flexi_cart' or 'flexi_cart_admin' libraries.

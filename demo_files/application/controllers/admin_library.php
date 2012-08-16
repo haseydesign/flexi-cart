@@ -30,6 +30,10 @@ class Admin_library extends CI_Controller {
  		// Alternatively, CI's default language can be set via the CI config. file.
  		// Note: This must be defined before $this->load->library('flexi_cart').
  		# $this->lang->load('flexi_cart', 'spanish');
+
+ 		// IMPORTANT! This global must be defined BEFORE the flexi cart library is loaded! 
+ 		// It is used as a global that is accessible via both models and both libraries, without it, flexi cart will not work.
+		$this->flexi = new stdClass;
 		
 		// Load 'admin' flexi cart library by default.
 		$this->load->library('flexi_cart_admin');
