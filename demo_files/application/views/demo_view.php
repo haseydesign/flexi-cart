@@ -70,6 +70,9 @@
 						<a href="<?php echo $base_url; ?>lite_library/item_form_examples">Add Items to Cart via a Form</a>
 					</li>
 					<li>
+						<a href="<?php echo $base_url; ?>lite_library/item_ajax_examples">Add Items to Cart via Ajax</a>
+					</li>
+					<li>
 						<a href="<?php echo $base_url; ?>lite_library/item_discount_examples">Add Discount Items to Cart</a>
 					</li>
 					<li>

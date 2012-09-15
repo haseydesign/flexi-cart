@@ -40,6 +40,7 @@
 			<h2>Item Discount Examples</h2>
 			<a href="<?php echo $base_url; ?>lite_library/item_link_examples">Item Link Examples</a> |
 			<a href="<?php echo $base_url; ?>lite_library/item_form_examples">Item Form Examples</a> |
+			<a href="<?php echo $base_url; ?>lite_library/item_ajax_examples">Item Ajax Examples </a> |
 			<a href="<?php echo $base_url; ?>lite_library/item_database_examples">Item Database Examples</a>
 
 			<div class="w100 frame">
