@@ -23,6 +23,9 @@
 							<a href="<?php echo $base_url; ?>lite_library/item_form_examples">Add Items to Cart via a Form</a>
 						</li>
 						<li>
+							<a href="<?php echo $base_url; ?>lite_library/item_ajax_examples">Add Items to Cart via Ajax</a>
+						</li>
+						<li>
 							<a href="<?php echo $base_url; ?>lite_library/item_discount_examples">Add Discount Items to Cart</a>
 						</li>
 						<li class="header">Dynamic Item Examples
@@ -100,7 +103,7 @@
 					</ul>
 				</li>
 
-				<li class="css_nav_dropmenu">
+				<li id="mini_cart" class="css_nav_dropmenu">
 					Mini Cart
 					<ul>
 						<li class="status">
@@ -199,6 +202,7 @@
 								</tbody>
 							<?php } ?>
 							</table>
+							<div id="mini_cart_status">Cart has been updated!</div>
 						</li>
 					</ul>
 				</li>

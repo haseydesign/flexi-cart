@@ -29,7 +29,7 @@ class Standard_library extends CI_Controller {
  		// The defined language file must be added to the CI application directory as 'application/language/[language_name]/flexi_cart_lang.php'.
  		// Alternatively, CI's default language can be set via the CI config. file.
  		// Note: This must be defined before $this->load->library('flexi_cart').
- 		# $this->lang->load('flexi_cart', 'spanish');
+ 		// $this->lang->load('flexi_cart', 'spanish');
 
  		// IMPORTANT! This global must be defined BEFORE the flexi cart library is loaded! 
  		// It is used as a global that is accessible via both models and both libraries, without it, flexi cart will not work.
@@ -270,6 +270,34 @@ class Standard_library extends CI_Controller {
 		$this->load->model('demo_cart_model');
 		
 		$this->demo_cart_model->demo_insert_form_item_to_cart($item_id);
+
+		redirect('standard_library/view_cart');		
+	}
+
+	/**
+	 * insert_ajax_link_item_to_cart
+	 * Inserts an item to the cart via a link from the 'Add Item to Cart via Ajax' page.
+	 * The settings for each item are defined via the custom demo function 'demo_insert_ajax_link_item_to_cart()'.
+	 */ 
+	function insert_ajax_link_item_to_cart($item_id = 0)
+	{
+		$this->load->model('demo_cart_model');
+		
+		$this->demo_cart_model->demo_insert_ajax_link_item_to_cart($item_id);
+
+		redirect('standard_library/view_cart');		
+	}
+
+	/**
+	 * insert_ajax_form_item_to_cart
+	 * Inserts an item to the cart via a form from the 'Add Item to Cart via Ajax' page.
+	 * The settings for each item are defined via the custom demo function 'demo_insert_ajax_form_item_to_cart()'.
+	 */ 
+	function insert_ajax_form_item_to_cart()
+	{
+		$this->load->model('demo_cart_model');
+		
+		$this->demo_cart_model->demo_insert_ajax_form_item_to_cart();
 
 		redirect('standard_library/view_cart');		
 	}

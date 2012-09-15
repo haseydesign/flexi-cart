@@ -48,13 +48,14 @@ body {background:url(../images/site_bg.png) repeat #292929; text-align:center;}
 #sub_nav >li>ul>li.status:last-child {padding-bottom:10px;}
 
 /* Mini Cart */
-#sub_nav table {width:235px; margin:0; padding:0; border:none; background-color:transparent; font-size:12px;}
-#sub_nav table td, #sub_nav table th {background-color:transparent;}
-#sub_nav table thead th {border:none; border-bottom:3px double #999; text-align:center;}
-#sub_nav table tfoot tr:first-child th {padding-top:10px;}
-#sub_nav table tfoot th {padding:5px; border:none; text-align:left;}
-#sub_nav table tfoot td {padding:5px 0; border:none;}
-#sub_nav table td {border:none; border-bottom:1px solid #999; text-align:center;}
+#mini_cart table {width:235px; margin:0; padding:0; border:none; background-color:transparent; font-size:12px;}
+#mini_cart table td, #mini_cart table th {background-color:transparent;}
+#mini_cart table thead th {border:none; border-bottom:3px double #999; text-align:center;}
+#mini_cart table tfoot tr:first-child th {padding-top:10px;}
+#mini_cart table tfoot th {padding:5px; border:none; text-align:left;}
+#mini_cart table tfoot td {padding:5px 0; border:none;}
+#mini_cart table td {border:none; border-bottom:1px solid #999; text-align:center;}
+#mini_cart_status {display:none; width:217px; margin-top:5px; padding:5px; background-color:#cf0; border-radius:3px; border:3px double #333; font-weight:bold; text-align:center; color:#333;}
 
 /* Google Search box */
 #sub_nav #user_guide_search {float:right; font-size:12px;}

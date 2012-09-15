@@ -251,7 +251,7 @@ class Demo_cart_model extends CI_Model {
 	
 	/**
 	 * demo_insert_form_item_to_cart
-	 * Insert an item to the cart from via 'Add items to cart via a form' page.
+	 * Insert an item to the cart via a form from the 'Add items to cart via a form' page.
 	 */
 	function demo_insert_form_item_to_cart($item_id = 0)
 	{
@@ -381,6 +381,154 @@ class Demo_cart_model extends CI_Model {
 		$this->session->set_flashdata('message', $this->flexi_cart->get_messages());
 	}
 	
+	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
+
+	/**
+	 * demo_insert_ajax_link_item_to_cart
+	 * Insert an item to the cart via a link from the 'Add Item to Cart via Ajax' page.
+	 */
+	function demo_insert_ajax_link_item_to_cart($item_id = 0)
+	{
+		$this->load->library('flexi_cart');
+
+		###+++++++++++++++++++++++++++++++++###
+		
+		if ($item_id == 501)
+		{
+			// Insert a single item via ajax.
+			$cart_data = array('id' => 501, 'name' => 'Item #501, single item via an ajax link.', 'quantity' => 1, 'price' => 30);
+		}
+		else if ($item_id == 502)
+		{
+			// Insert multiple items at once via ajax.
+			$cart_data = array(
+				array('id' => 5021, 'name' => 'Item #4021, multiple via an ajax link.', 'quantity' => 1, 'price' => 11.50),
+				array('id' => 5022, 'name' => 'Item #4022, multiple via an ajax link.', 'quantity' => 3, 'price' => 29.99),
+				array('id' => 5023, 'name' => 'Item #4023, multiple via an ajax link.', 'quantity' => 2, 'price' => 40)
+			);
+		}
+		
+		###+++++++++++++++++++++++++++++++++###
+		
+		// Insert collected data to cart.
+		if (isset($cart_data))
+		{
+			$this->flexi_cart->insert_items($cart_data);
+		}
+		
+		// ! Important note when updating the cart via ajax !
+		// CodeIgniters sessions need the page to be refreshed before data that is set to a session is available to be retrieved again.
+		//
+		// As flexi cart stores the cart data within CI's sessions, whenever the cart is updated via ajax, the cart will not be updated until after 
+		// the page has been refreshed/reloaded.
+		//
+		// Therefore, this example redirects back to the item ajax example page, where the updated mini cart drop menu will be displayed to the 
+		// user to notify them of the update.
+		redirect('lite_library/item_ajax_examples');
+		exit;
+	}
+
+	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
+
+	/**
+	 * demo_insert_ajax_link_item_to_cart
+	 * Insert an item to the cart via a form from the 'Add Item to Cart via Ajax' page.
+	 */
+	function demo_insert_ajax_form_item_to_cart()
+	{
+		$this->load->library('flexi_cart');
+
+		###+++++++++++++++++++++++++++++++++###
+
+		// Example #503.
+		if ($this->input->post('add_item_ajax_form_503'))
+		{
+			$item_id = $this->input->post('item_id');
+			$name = $this->input->post('name');
+			$price = $this->input->post('price');
+			$quantity = $this->input->post('quantity');
+			$option_1 = $this->input->post('option_1');
+			$option_2 = $this->input->post('option_2');
+
+			// This is an example of including an array of options that are available for an item.
+			// This data could then be used to allow the item option to be changed directly via the cart, once already inserted.
+			$example_updatable_option_data = array(
+				'Colour' => array('Black', 'Pink', 'Orange'),
+				'Size' => array('Small', 'Medium', 'Large')
+			);
+			
+			$cart_data = array(
+				'id' => $item_id, 
+				'name' => $name, 
+				'quantity' => $quantity, 
+				'price' => $price,
+				'options' => array(
+					'Colour' => $option_1, 'Size' => $option_2
+				),
+				'option_data' => $example_updatable_option_data
+			);			
+			// Note: The 'options' array could also have been set without array keys. If set, the array keys can be displayed by the cart as a suffix.
+			// Example #1: 'options' => array('Option Type #1' => $option_1, 'Option Type #2' => $option_2)
+			// Example #2: 'options' => array($option_1, $option_2)
+		}
+		
+		###+++++++++++++++++++++++++++++++++###
+
+		// Example #504.
+		else if ($this->input->post('add_item_ajax_form_504'))
+		{
+			// Create array of example data that could be obtained via a database.
+			$example_option_lookup_data = array(
+				array('id' => 1, 'price' => 24.95, 'option' => 'Option #1'),
+				array('id' => 2, 'price' => 32.95, 'option' => 'Option #2'),
+				array('id' => 3, 'price' => 49.95, 'option' => 'Option #3')
+			);
+			
+			$item_id = $this->input->post('item_id');
+			$name = $this->input->post('name');
+			$quantity = $this->input->post('quantity');
+			$option_id = $this->input->post('option_with_price'); // Get the selected option id.
+			
+			// Loop through example database option data and get the price and option name.
+			foreach($example_option_lookup_data as $data)
+			{
+				if ($option_id == $data['id'])
+				{
+					$price = $data['price'];
+					$option = $data['option'];
+				}
+			}
+			
+			$cart_data = array(
+				'id' => $item_id, 
+				'name' => $name, 
+				'quantity' => $quantity, 
+				'price' => $price, 
+				'options' => $option
+			);			
+			// Note: As there is only 1 option selected, we do not need to add the options as an array like in other examples.
+		}
+
+		###+++++++++++++++++++++++++++++++++###
+
+		// Insert collected data to cart.
+		if (isset($cart_data))
+		{
+			$this->flexi_cart->insert_items($cart_data);
+		}
+						
+		// ! Important note when updating the cart via ajax !
+		// CodeIgniters sessions need the page to be refreshed before data that is set to a session is available to be retrieved again.
+		//
+		// As flexi cart stores the cart data within CI's sessions, whenever the cart is updated via ajax, the cart will not be updated until after 
+		// the page has been refreshed/reloaded.
+		//
+		// Therefore, this example redirects back to the item ajax example page, where the updated mini cart drop menu will be displayed to the 
+		// user to notify them of the update.
+		redirect('lite_library/item_ajax_examples');
+		exit;
+	}
+
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
 	
 	/**
