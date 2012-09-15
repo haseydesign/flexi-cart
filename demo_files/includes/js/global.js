@@ -23,26 +23,26 @@ $(function()
 	});
 
 	// Toggle Menus
-	$('.js_nav_dropmenu').hover(function()
-	{
+	$('.js_nav_dropmenu').live({mouseover:function()
+	{	
 		var menu_height = $(this).attr('data-menu-height');		
 		$(this).find('ul').stop().animate({'height':menu_height}, 400);
 	},
-	function()
+	mouseleave:function()
 	{
-		$(this).find('ul').stop().animate({'height':'0px'}, 400);
-	});
+		$(this).find('ul').stop().animate({'height':'0'}, 400);
+	}});
 	
 	// Fix uneven div heights
 	$('.parallel').each(function()
 	{
 		var tallest_elem = 0;
-		$(this).children('.parallel_target').each(function(i)
+		$(this).find('.parallel_target').each(function(i)
 		{
 			tallest_elem = ($(this).height() > tallest_elem)?$(this).height():tallest_elem;
 		});
 		
-		$(this).children('.parallel_target').css({'min-height':tallest_elem});
+		$(this).find('.parallel_target').css({'min-height':tallest_elem});
 	});	
 	
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
