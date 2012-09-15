@@ -1,9 +1,11 @@
-$(function() {
+$(function() 
+{
 	// Remove No JS Class
 	$('html').removeClass('no-js');
 
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 
+	// Convert each css based drop menu into a JS drop menu.
 	$('.css_nav_dropmenu').each(function(){
 		// Save menu height to enable dropmenu animation
 		var menu_height = $(this).find('ul').height();
@@ -43,6 +45,22 @@ $(function() {
 		$(this).children('.parallel_target').css({'min-height':tallest_elem});
 	});	
 	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
+
+	// Animate flexi auth ribbon
+	$('#flexi_auth_ribbon').hover(
+		function()
+		{
+			$(this).addClass('hover');
+			$(this).clearQueue().animate({top:0}, 250);
+		},
+		function()
+		{
+			$(this).removeClass('hover');
+			$(this).clearQueue().animate({top:-60}, 500);
+		}
+	);
+
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 	
 	// Fade out status messages, but ensure error messages stay visable.

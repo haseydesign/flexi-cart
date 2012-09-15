@@ -32,5 +32,17 @@
 				<a href="https://github.com/haseydesign/flexi-cart">Download</a>
 			</li>
 		</ul>
+
+		<a href="http://haseydesign.com/flexi-auth/" id="flexi_auth_ribbon">
+			<div class="ribbon_text">			
+				<p>
+					Need a New<br/>
+					CodeIgniter<br/>
+					User Login<br/>
+					Library?
+				</p>
+				<h6>flexi auth</h6>
+			</div>
+		</a>		
 	</div>
 </div>
