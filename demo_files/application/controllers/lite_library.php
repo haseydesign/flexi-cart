@@ -115,13 +115,6 @@ class Lite_library extends CI_Controller {
 	// INSERT ITEM EXAMPLES
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
 
-	#!#
-	function item_ajax_examples()
-	{
-		$this->load->view('demo/feature_examples/item_ajax_examples_view', $this->data);
-	}
-	#!#
-
 	/**
 	 * item_link_examples
 	 * A list of examples showing some of the features and options that can be set when adding an item to the cart.
@@ -140,6 +133,16 @@ class Lite_library extends CI_Controller {
 	function item_form_examples()
 	{
 		$this->load->view('demo/feature_examples/item_form_examples_view', $this->data);
+	}
+
+	/**
+	 * item_ajax_examples
+	 * A list of examples showing how to add items to the cart using a ajax.
+	 * This page is accessed from the 'Add Items to Cart via Ajax' page listed in the navigation menu 'Item Examples'.
+	 */ 
+	function item_ajax_examples()
+	{
+		$this->load->view('demo/feature_examples/item_ajax_examples_view', $this->data);
 	}
 	 
 	/**
