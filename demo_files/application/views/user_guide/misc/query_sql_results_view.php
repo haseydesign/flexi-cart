@@ -55,7 +55,7 @@
 				<p>To return data from the query objects, CodeIgniters query result functions ('result()', 'row()' etc.) can be directly chained to the returned object.</p>
 				
 				<h6>Examples</h6>
-				<p><em>Note: These examples use the '<a href="<?php echo $base_url; ?>user_guide/custom_sql_admin#get_table_data">get_table_data()</a>' function as an example SQL SELECT query function.</em></p>
+				<p><em>Note: These examples use the '<a href="<?php echo $base_url; ?>user_guide/custom_sql_admin#get_db_table_data">get_db_table_data()</a>' function as an example SQL SELECT query function.</em></p>
 <pre>
 <span class="comment">// Example #1: Chaining CodeIgniters 'result()' function.</span>
 
@@ -126,7 +126,7 @@ $this->flexi_cart_admin->get_db_table_data('example_table');
 				</div>					
 				
 				<h6>Examples</h6>
-				<p><em>Note: These examples use the '<a href="<?php echo $base_url; ?>user_guide/custom_sql_admin#get_table_data">get_table_data()</a>' function as an example SQL SELECT query function.</em></p>
+				<p><em>Note: These examples use the '<a href="<?php echo $base_url; ?>user_guide/custom_sql_admin#get_db_table_data">get_db_table_data()</a>' function as an example SQL SELECT query function.</em></p>
 <pre>
 <span class="comment">// Example #1: Returning CodeIgniters 'result()' query data using alternative syntax.</span>
 

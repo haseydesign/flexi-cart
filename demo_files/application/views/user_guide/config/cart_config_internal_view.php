@@ -521,7 +521,6 @@ $config['messages']['target_user']['items_added_successfully'] = FALSE;
 						<ul>
 							<li><a href="http://translate.google.com/">Google Translate</a></li>
 							<li><a href="http://www.microsofttranslator.com/">Bing Translator</a></li>
-							<li><a href="http://babelfish.yahoo.com/">Yahoo! Babel Fish</a></li>
 							<li><a href="http://translate.reference.com/">Dictionary.com Translator</a></li>
 						</ul>
 					</p>

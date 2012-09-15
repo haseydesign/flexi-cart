@@ -26,7 +26,7 @@
 		<div class="content clearfix">
 			<div class="intro_text">
 				<h1>User Guide | Customising SQL Statements</h1>
-				<p>Many of the data returned by flexi cart functions can be customised by re-defining the SQL statements used by functions.</p>
+				<p>Many of the flexi cart functions return data that can be customised by re-defining the SQL statements used by the function.</p>
 			</div>		
 		</div>
 	</div>

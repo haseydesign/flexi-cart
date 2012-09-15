@@ -129,11 +129,11 @@
 				<h6>Order Management Functions</h6>
 				<ul>
 					<li>
-						<a href="<?php echo $base_url; ?>user_guide/order_admin#get_refund_itemised_query">get_refund_itemised_query()</a><br/>
+						<a href="<?php echo $base_url; ?>user_guide/order_admin#get_refund_itemised">get_refund_itemised()</a><br/>
 						<small>Returns an itemised query of refund totals for all items that have been cancelled within an order.</small>
 					</li>
 					<li>
-						<a href="<?php echo $base_url; ?>user_guide/order_admin#get_refund_summary_query">get_refund_summary_query()</a><br/>
+						<a href="<?php echo $base_url; ?>user_guide/order_admin#get_refund_summary">get_refund_summary()</a><br/>
 						<small>Returns a summary of refund totals for all items that have been cancelled within an order.</small>
 					</li>
 				</ul>

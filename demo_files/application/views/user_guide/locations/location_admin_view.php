@@ -482,7 +482,7 @@ $sql_where = array(...);
 
 <span class="comment">// Example of chaining CI's query function 'result()'.
 // Read the <a href="<?php echo $base_url; ?>user_guide/query_sql_results">Query Result documentation</a> for further information on available functions.</span>
-$this->flexi_cart_admin->get_db_location($sql_select, $sql_where)->result()->result();
+$this->flexi_cart_admin->get_db_location($sql_select, $sql_where)->result();
 </pre>
 			</div>
 
