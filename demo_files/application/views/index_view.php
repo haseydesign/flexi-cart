@@ -23,7 +23,7 @@
 		<div class="content clearfix">
 			<img src="<?php echo $includes_dir;?>images/flexi_cart_traffic_sign.png" class="main_banner_img"/>		
 			<div id="banner_wrap" class="w66 float_r align_ctr">
-				<h1>flexi cart, the developers toolkit for building customised shopping carts.</h1>
+				<h1>flexi cart, the customisable toolkit for building e-commerce shopping carts.</h1>
 				<a href="<?php echo $base_url; ?>user_guide">
 					<img src="<?php echo $includes_dir; ?>images/user_guide_icon.png"/>
 					<p>User Guide</p>
@@ -43,7 +43,7 @@
 	<div class="content_wrap intro_bg">
 		<div class="content clearfix">
 			<h2>The latest news on flexi cart</h2>
-			<p>flexi cart beta 1.0.2 has been released including new language files and library message functionality.</p>
+			<p>flexi cart 1.1 has been released including new language files, library message functionality and ajax demos.</p>
 		</div>
 	</div>
 
