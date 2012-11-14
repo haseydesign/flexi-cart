@@ -769,13 +769,13 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 
 			// Calculate the internal item price.
 			$item_internal_tax_data = $this->calculate_tax($row[$this->flexi->cart_columns['item_internal_price']], $item_tax_rate);
-			
+
 			// Calculate the tax on the item price using the carts current location settings.
 			$item_tax_data = $this->calculate_tax($item_internal_tax_data['value_ex_tax'], $item_tax_rate, FALSE, TRUE);
 						
 			// Update the item price.
 			$row[$this->flexi->cart_columns['item_price']] = $this->format_calculation($item_tax_data['value_inc_tax']);
-				
+
 			// Save item pricing.
 			$this->flexi->cart_contents['items'][$row_id] = $row;
 		}
@@ -3340,13 +3340,13 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 		$unset_status = FALSE;
 		
 		// If there are existing discount codes, check they are still in the list of submitted discount codes.
-		if (! empty($this->CI->flexi->cart_contents['settings']['discounts']['codes']))
+		if (! empty($this->flexi->cart_contents['settings']['discounts']['codes']))
 		{
-			foreach($this->CI->flexi->cart_contents['settings']['discounts']['codes'] as $code => $discount_data)
+			foreach($this->flexi->cart_contents['settings']['discounts']['codes'] as $code => $discount_data)
 			{
 				if (! in_array($code, $discount_codes))
 				{
-					unset($this->CI->flexi->cart_contents['settings']['discounts']['codes'][$code]);
+					unset($this->flexi->cart_contents['settings']['discounts']['codes'][$code]);
 					
 					$unset_status = TRUE;
 				}
