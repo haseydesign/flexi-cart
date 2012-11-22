@@ -138,7 +138,7 @@ CREATE TABLE `discount_calculation` (
   `disc_calculation` varchar(255) NOT NULL,
   PRIMARY KEY (`disc_calculation_id`),
   UNIQUE KEY `disc_calculation_id` (`disc_calculation_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
 
 -- ----------------------------
 -- Records of discount_calculation
@@ -156,7 +156,7 @@ CREATE TABLE `discount_columns` (
   `disc_column` varchar(255) NOT NULL,
   PRIMARY KEY (`disc_column_id`),
   UNIQUE KEY `disc_column_id` (`disc_column_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
 
 -- ----------------------------
 -- Records of discount_columns
@@ -217,7 +217,7 @@ CREATE TABLE `discount_methods` (
   KEY `disc_method_column_fk` (`disc_method_column_fk`) USING BTREE,
   KEY `disc_method_calculation_fk` (`disc_method_calculation_fk`) USING BTREE,
   KEY `disc_method_type_fk` (`disc_method_type_fk`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
 
 -- ----------------------------
 -- Records of discount_methods
@@ -246,7 +246,7 @@ CREATE TABLE `discount_tax_methods` (
   `disc_tax_method` varchar(255) NOT NULL,
   PRIMARY KEY (`disc_tax_method_id`),
   UNIQUE KEY `discoup_type_id` (`disc_tax_method_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
 
 -- ----------------------------
 -- Records of discount_tax_methods
@@ -264,7 +264,7 @@ CREATE TABLE `discount_types` (
   `disc_type` varchar(50) NOT NULL,
   PRIMARY KEY (`disc_type_id`),
   UNIQUE KEY `disc_type_id` (`disc_type_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Note: Do not alter the order or id''s of records in table.';
 
 -- ----------------------------
 -- Records of discount_types
