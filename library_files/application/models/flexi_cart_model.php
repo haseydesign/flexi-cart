@@ -628,7 +628,8 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 				// Save summary discount data to cart session array.
 				$this->save_summary_discount_data('item_summary_total', $item_total_discount_data, $discount_calculation_data);
 				
-				$this->flexi->cart_contents['settings']['tax']['data']['item_total_tax'] = $discount_calculation_data['tax_value'];
+				#!# Removed 22-11-2012 as it was causing problems with item summary totals when a discount was applied and the user was viewing prices either inc/ex tax.
+				#!# $this->flexi->cart_contents['settings']['tax']['data']['item_total_tax'] = $discount_calculation_data['tax_value'];
 				
 				$discount_void_reward_points = ($discount_calculation_data['void_reward_points']) ? TRUE : $discount_void_reward_points;
 				
@@ -989,7 +990,7 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 		
 		// Group item data.
 		$this->flexi->cart_contents['items'] = (isset($items)) ? $items : array();
-		
+
 		// Format sub-total summaries.
 		$this->flexi->cart_contents['summary']['total_rows'] = count($this->flexi->cart_contents['items']);
 		$this->flexi->cart_contents['summary']['total_items'] = $this->format_calculation($cart_total_items);
@@ -3056,7 +3057,7 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 		// Calculate discounted total and return total value either ex/including tax depending on the carts tax inclusion setting.
 		$item_total = ($taxable_value_ex_tax + $non_taxable_value);
 		$total = ($this->flexi_cart->cart_prices_inc_tax()) ? ($item_total + $tax_value) : $item_total;
-		
+
 		// Set and format return values.
 		$discount['tax_method'] = $discount_tax_method;
 		$discount['taxable_value'] = $this->format_calculation($taxable_value_ex_tax, 4);
@@ -3109,8 +3110,9 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 		}
 		
 		// Calculate the non discounted summary total.
-		$non_discounted_total = round(($taxable_value_ex_tax + $non_taxable_value + $tax_value), 2);
-		
+		$non_discounted_total = ($this->flexi_cart->cart_prices_inc_tax()) ? 
+			round(($taxable_value_ex_tax + $non_taxable_value + $tax_value), 2) : round(($taxable_value_ex_tax + $non_taxable_value), 2);
+
 		// Calculate discount value.
 		$discount = $this->calculate_discount(
 			$discount_data['value_discounted'], $taxable_value_ex_tax, $non_taxable_value, $tax_value, $tax_rate,
@@ -3135,8 +3137,9 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 			// Calculate discount value and discount tax.
 			$discount['value'] = ($discount['tax_method'] == 1) ? ($non_discounted_total - $discount['total']) : 
 				(($taxable_value_ex_tax + $non_taxable_value) - ($discount['taxable_value'] + $discount['non_taxable_value']));
-			$discount['discount_tax'] = ($discount['value'] - ($taxable_value_ex_tax - $discount['taxable_value']));
-			
+			$discount['discount_tax'] = ($discount['value'] - ($taxable_value_ex_tax - $discount['taxable_value']) > 0) ?
+				($discount['value'] - ($taxable_value_ex_tax - $discount['taxable_value'])) : 0;
+
 			if ($target_column != 'reward_vouchers')
 			{
 				// Update summary discount data.
