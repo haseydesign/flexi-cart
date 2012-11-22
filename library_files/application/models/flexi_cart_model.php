@@ -2408,6 +2408,7 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 		$query = $this->db->select($sql_select)
 			->from($tbl_discount)
 			->where($sql_where)
+			->order_by($tbl_cols_discount['order_by'], 'desc')
 			->get();
 		
 		return ($query->num_rows() > 0) ? $query->result_array() : FALSE; 
