@@ -53,7 +53,7 @@
 		
 			<div class="w100 frame">
 				<h3>What is flexi cart?</h3>
-				<p>flexi cart is a free open source shopping cart library for use with the <a href="http://codeigniter.com" target="_blank">CodeIgniter</a> 2.0+ framework.</p>
+				<p>flexi cart is a free open source shopping cart library for use with the <a href="http://ellislab.com" target="_blank">CodeIgniter</a> 2.0+ framework.</p>
 				<p>It is designed with modularised features that can be mixed and matched, turned on or off, and can be customised to suit your requirements.</p>
 				<hr style="margin-top:10px; margin-bottom:10px; border:none; border-top:1px dotted #999;"/>
 				<h3>What is flexi cart not?</h3>			
@@ -73,7 +73,7 @@
 				<p>If you find an example of what you're after, then open up the <a href="https://github.com/haseydesign/flexi-cart">downloadable</a> demo files and have a look at the underlying code.</p>
 				<hr/>
 				
-				<p>Still stuck? Contact me via the CodeIgniter flexi cart forum thread <a href="http://codeigniter.com/forums/viewthread/212926">http://codeigniter.com/forums/viewthread/212926</a></p>
+				<p>Still stuck? Contact me via the CodeIgniter flexi cart forum thread <a href="http://ellislab.com/forums/viewthread/212926">http://ellislab.com/forums/viewthread/212926</a></p>
 			</div>
 			
 		</div>

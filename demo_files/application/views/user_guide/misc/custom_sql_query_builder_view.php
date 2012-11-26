@@ -72,7 +72,7 @@
 				<div class="frame_note">
 					<ul>
 						<li><a href="<?php echo $base_url; ?>user_guide/defining_custom_sql">Defining SQL Statements</a> in flexi cart.</li>
-						<li><a href="http://codeigniter.com/user_guide/database/active_record.html" target="_blank">CodeIgniter Active Record user guide</a>.</li>
+						<li><a href="http://ellislab.com/user_guide/database/active_record.html" target="_blank">CodeIgniter Active Record user guide</a>.</li>
 					</ul>
 				</div>
 			</div>

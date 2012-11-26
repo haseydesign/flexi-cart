@@ -35,7 +35,7 @@
 		<div class="content clearfix">
 			<div class="intro_text">
 				<h1>Features of flexi cart</h1>
-				<p>flexi cart is a free shopping cart library for use with the <a href="http://codeigniter.com" target="_blank">CodeIgniter</a> 2.0+ framework.</p>
+				<p>flexi cart is a free shopping cart library for use with the <a href="http://ellislab.com" target="_blank">CodeIgniter</a> 2.0+ framework.</p>
 				<p>CodeIgniter already includes a basic shopping cart library that allows you to add items to a cart and display it - but sadly, thats about it.</p>
 				<p>For anyone trying to build a complete shopping cart store, the native library is just not going to cut it. This is where flexi cart comes to the rescue, offering a plethora of flexible features that can be customised to behave and function the way you need them to.</p>
 			</div>		

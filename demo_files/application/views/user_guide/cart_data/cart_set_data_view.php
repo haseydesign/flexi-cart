@@ -589,7 +589,7 @@ $this->flexi_cart->destroy_cart();
 						To define your own translations, create a folder within the CI language directory named as the language, e.g. 'french'.<br/>
 						Then copy the 'flexi_cart_lang.php' file from the 'english' folder to the new language folder and translate the messages within the file.
 					</p>
-					<p>For further information, read the <a href="http://codeigniter.com/user_guide/libraries/language.html" target="_blank">CodeIgniter documentation</a> on the language library.</p>
+					<p>For further information, read the <a href="http://ellislab.com/user_guide/libraries/language.html" target="_blank">CodeIgniter documentation</a> on the language library.</p>
 				</div>
 				
 				<h6>Return Values</h6>
@@ -801,7 +801,7 @@ $this->flexi_cart->destroy_cart();
 						To define your own translations, create a folder within the CI language directory named as the language, e.g. 'french'.<br/>
 						Then copy the 'flexi_cart_lang.php' file from the 'english' folder to the new language folder and translate the messages within the file.
 					</p>
-					<p>For further information, read the <a href="http://codeigniter.com/user_guide/libraries/language.html" target="_blank">CodeIgniter documentation</a> on the language library.</p>
+					<p>For further information, read the <a href="http://ellislab.com/user_guide/libraries/language.html" target="_blank">CodeIgniter documentation</a> on the language library.</p>
 				</div>
 				
 				<h6>Return Values</h6>
@@ -1046,7 +1046,7 @@ $this->flexi_cart->destroy_cart();
 						To define your own translations, create a folder within the CI language directory named as the language, e.g. 'french'.<br/>
 						Then copy the 'flexi_cart_lang.php' file from the 'english' folder to the new language folder and translate the messages within the file.
 					</p>
-					<p>For further information, read the <a href="http://codeigniter.com/user_guide/libraries/language.html" target="_blank">CodeIgniter documentation</a> on the language library.</p>
+					<p>For further information, read the <a href="http://ellislab.com/user_guide/libraries/language.html" target="_blank">CodeIgniter documentation</a> on the language library.</p>
 				</div>
 				
 				<h6>Return Values</h6>
@@ -1148,7 +1148,7 @@ $this->flexi_cart->destroy_cart();
 						To define your own translations, create a folder within the CI language directory named as the language, e.g. 'french'.<br/>
 						Then copy the 'flexi_cart_lang.php' file from the 'english' folder to the new language folder and translate the messages within the file.
 					</p>
-					<p>For further information, read the <a href="http://codeigniter.com/user_guide/libraries/language.html" target="_blank">CodeIgniter documentation</a> on the language library.</p>
+					<p>For further information, read the <a href="http://ellislab.com/user_guide/libraries/language.html" target="_blank">CodeIgniter documentation</a> on the language library.</p>
 				</div>
 				
 				<h6>Return Values</h6>
