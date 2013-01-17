@@ -1663,10 +1663,10 @@ class Flexi_cart_admin extends Flexi_cart_lite
 	 */
 	public function save_cart_data($user_id = 0, $set_readonly_status = FALSE, $sql_update = FALSE, $force_overwrite = FALSE)
 	{
-		if ($this->CI->flexi_cart_admin_model->save_cart_data($user_id, $set_readonly_status, $sql_update, $force_overwrite))
+		if ($cart_data_id = $this->CI->flexi_cart_admin_model->save_cart_data($user_id, $set_readonly_status, $sql_update, $force_overwrite))
 		{
 			$this->CI->flexi_cart_admin_model->set_status_message('cart_data_save_successful', 'config');
-			return TRUE;
+			return $cart_data_id;
 		}
 		else 
 		{
