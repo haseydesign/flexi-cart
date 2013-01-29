@@ -44,7 +44,7 @@
 				<ul>
 					<li><a href="https://github.com/haseydesign/flexi-cart">Download</a> the latest version of the flexi cart library.</li>
 					<li>Read through the <a href="<?php echo $base_url; ?>user_guide/installation">installation guide</a>.</li>
-					<li>Read the <a href="<?php echo $base_url; ?>user_guide/conception">flexi cart conception</a> to understand the principle ideas of how flexi cart works.</li>
+					<li>Read the <a href="<?php echo $base_url; ?>user_guide/concept">flexi cart concept</a> to understand the principle ideas of how flexi cart works.</li>
 					<li>Read the <a href="<?php echo $base_url; ?>user_guide/library_info">library documentation</a> to get an understanding of the purpose of each library.</li>
 					<li>Then start building your shopping cart, using the demo and user guide for reference on how to implement each of flexi carts features.</li>
 				</ul>
