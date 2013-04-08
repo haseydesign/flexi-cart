@@ -2395,7 +2395,7 @@ class Flexi_cart_model extends Flexi_cart_lite_model
 		
 		// Create SQL WHERE statement.
 		$sql_where = $tbl_cols_discount['usage_limit']." > 0 AND ".$tbl_cols_discount['valid_date']." <= '".$this->database_date_time()."' AND 
-			".$tbl_cols_discount['expire_date']." >= '".$this->database_date_time()."' AND ".$tbl_cols_discount['status']." = 1 AND (";
+			".$tbl_cols_discount['expire_date']." >= '".$this->database_date_time()."' AND ".$tbl_cols_discount['status']." = 1 AND (1=2 OR ";
 		foreach((array)$discount_codes as $discount_code)
 		{
 			if (! empty($discount_code))
