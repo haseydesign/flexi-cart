@@ -221,7 +221,8 @@ span.tooltip_trigger:after {content:"\2020"; vertical-align:7px; font-size:70%; 
 #cart_summary td {width:100px; text-align:center;}
 #cart_summary td:first-child {width:auto; text-align:left;}
 #cart_summary thead th {background-color:#d0d0d0; border-bottom:1px solid #aaa; font-weight:bold;}
-#cart_summary tfoot th, #cart_summary tfoot td {background-color:#d0d0d0; border-top:1px solid #aaa; font-weight:bold;}
+#cart_summary tfoot th, #cart_summary tfoot td {background-color:#e0e0e0; border-top:1px solid #aaa; font-weight:bold;}
+#cart_summary tfoot tr.grand_total th, #cart_summary tfoot tr.grand_total td {background-color:#d0d0d0;}
 
 tr.discount th, tr.discount td {background-color:#ecfccb; border-top:1px dotted #aaa; border-bottom:1px dotted #aaa;}
 tr.surcharge th, tr.surcharge td {background-color:#ffd7d7; border-top:1px dotted #aaa; border-bottom:1px dotted #aaa;}

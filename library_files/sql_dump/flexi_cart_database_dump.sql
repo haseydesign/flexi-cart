@@ -433,6 +433,7 @@ CREATE TABLE `order_summary` (
   `ord_reward_voucher_total` double(10,2) NOT NULL DEFAULT '0.00',
   `ord_tax_rate` varchar(25) NOT NULL DEFAULT '',
   `ord_tax_total` double(10,2) NOT NULL DEFAULT '0.00',
+  `ord_sub_total` double(10,2) NOT NULL DEFAULT '0.00',
   `ord_total` double(10,2) NOT NULL DEFAULT '0.00',
   `ord_total_rows` int(10) NOT NULL DEFAULT '0',
   `ord_total_items` double(10,2) NOT NULL DEFAULT '0.00',

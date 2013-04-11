@@ -348,14 +348,6 @@
 									<?php echo $this->flexi_cart_admin->shipping_total(TRUE, TRUE, TRUE);?>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<?php echo $this->flexi_cart_admin->tax_name()." @ ".$this->flexi_cart_admin->tax_rate();?>
-								</td>
-								<td>
-									<?php echo $this->flexi_cart_admin->tax_total(TRUE, TRUE, TRUE);?>
-								</td>
-							</tr>
 															
 						<?php if ($this->flexi_cart_admin->summary_discount_status()) { ?>
 							<tr class="discount">
@@ -460,6 +452,18 @@
 						</tbody>
 						<tfoot>
 							<tr>
+								<th>Sub Total (ex. tax)</th>
+								<td><?php echo $this->flexi_cart_admin->sub_total(TRUE, TRUE, TRUE);?></td>
+							</tr>
+							<tr>
+								<th>
+									<?php echo $this->flexi_cart_admin->tax_name()." @ ".$this->flexi_cart_admin->tax_rate();?>
+								</td>
+								<td>
+									<?php echo $this->flexi_cart_admin->tax_total(TRUE, TRUE, TRUE);?>
+								</td>
+							</tr>
+							<tr class="grand_total">
 								<th>Grand Total</th>
 								<td><?php echo $this->flexi_cart_admin->total(TRUE, TRUE, TRUE);?></td>
 							</tr>

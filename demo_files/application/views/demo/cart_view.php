@@ -437,14 +437,6 @@
 										<?php echo $this->flexi_cart->shipping_total();?>
 									</td>
 								</tr>
-								<tr>
-									<td>
-										<?php echo $this->flexi_cart->tax_name()." @ ".$this->flexi_cart->tax_rate(); ?>
-									</td>
-									<td>
-										<?php echo $this->flexi_cart->tax_total();?>
-									</td>
-								</tr>
 																
 							<?php if ($this->flexi_cart->summary_discount_status()) { ?>
 								<tr class="discount">
@@ -545,10 +537,26 @@
 									<td><?php echo $this->flexi_cart->reward_voucher_total();?></td>
 								</tr>
 							<?php } ?>
-							
+
 							</tbody>
 							<tfoot>
 								<tr>
+									<td>
+										Sub Total (ex. tax)
+									</td>
+									<td>
+										<?php echo $this->flexi_cart->sub_total();?>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<?php echo $this->flexi_cart->tax_name()." @ ".$this->flexi_cart->tax_rate(); ?>
+									</td>
+									<td>
+										<?php echo $this->flexi_cart->tax_total();?>
+									</td>
+								</tr>							
+								<tr class="grand_total">
 									<th>Grand Total</th>
 									<td><?php echo $this->flexi_cart->total();?></td>
 								</tr>

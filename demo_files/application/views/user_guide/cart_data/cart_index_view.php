@@ -96,6 +96,10 @@
 						<small>Returns total tax value of the cart.</small>
 					</li>
 					<li>
+						<a href="<?php echo $base_url; ?>user_guide/cart_summary_session_data#sub_total">sub_total()</a><br/>
+						<small>Returns sub-total value of the cart (e.g. grand total excluding tax).</small>
+					</li>
+					<li>
 						<a href="<?php echo $base_url; ?>user_guide/cart_summary_session_data#total">total()</a><br/>
 						<small>Returns grand total value of the cart.</small>
 					</li>

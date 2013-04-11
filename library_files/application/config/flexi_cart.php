@@ -800,6 +800,7 @@
 	$config['database']['order_summary']['columns']['reward_voucher_total'] = 'ord_reward_voucher_total';
 	$config['database']['order_summary']['columns']['tax_rate'] = 'ord_tax_rate';
 	$config['database']['order_summary']['columns']['tax_total'] = 'ord_tax_total';
+	$config['database']['order_summary']['columns']['sub_total'] = 'ord_sub_total'; // Grand total excluding tax
 	$config['database']['order_summary']['columns']['total'] = 'ord_total';
 	$config['database']['order_summary']['columns']['total_rows'] = 'ord_total_rows';
 	$config['database']['order_summary']['columns']['total_items'] = 'ord_total_items';

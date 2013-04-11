@@ -54,7 +54,7 @@
 				</p>
 				<h6>Get Cart Summary Totals from Session</h6>
 				<p>
-					<a href="#item_summary_total">item_summary_total()</a> | <a href="#shipping_total">shipping_total()</a> | <a href="#item_shipping_total">item_shipping_total()</a> | <a href="#tax_total">tax_total()</a> | <a href="#total">total()</a>
+					<a href="#item_summary_total">item_summary_total()</a> | <a href="#shipping_total">shipping_total()</a> | <a href="#item_shipping_total">item_shipping_total()</a> | <a href="#tax_total">tax_total()</a> | <a href="#sub_total">sub_total()</a> | <a href="#total">total()</a>
 				</p>
 				<h6>Get Cart Discount / Surcharge Summary Totals from Session</h6>
 				<p>
@@ -612,6 +612,105 @@
 				</table>
 			</div>
 
+			<a name="sub_total"></a>
+			<div class="w100 frame">
+				<h3 class="heading">sub_total()</h3>
+				
+				<p>Returns the sub-total value of the cart (e.g. grand total excluding tax).</p>
+				<hr/>
+				
+				<h6>Library and Requirements</h6>
+				<div class="frame_note">
+					<p>Available via the lite, standard and admin libraries.</p>
+					<p>Does not require any database tables to be enabled.</p>
+				</div>				
+				
+				<h6>Function Parameters</h6>
+				<code>total(inc_discount, format, internal_value)</code>
+				<a href="#help" class="help_link">Help</a>
+				<table>
+					<thead>
+						<tr>
+							<th class="spacer_150">Name</th>
+							<th class="spacer_100 align_ctr">Data Type</th>
+							<th class="spacer_75 align_ctr">Required</th>
+							<th class="spacer_75 align_ctr">Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>inc_discount</td>
+							<td class="align_ctr">bool</td>
+							<td class="align_ctr">No</td>
+							<td class="align_ctr">TRUE</td>
+							<td>Define whether the returned value should include any active discount.</td>
+						</tr>
+						<tr>
+							<td>format</td>
+							<td class="align_ctr">bool</td>
+							<td class="align_ctr">No</td>
+							<td class="align_ctr">TRUE</td>
+							<td>Define whether to format the returned value as a currency.</td>
+						</tr>
+						<tr>
+							<td>internal_value</td>
+							<td class="align_ctr">bool</td>
+							<td class="align_ctr">No</td>
+							<td class="align_ctr">FALSE</td>
+							<td>Define whether to return the value using the carts internal currency instead of the users current currency.</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h6>Return Values</h6>
+				<div class="frame_note">
+					<p><strong class="spacer_125">Failure:</strong>n/a</p>
+					<p><strong class="spacer_125">Success:</strong>int | (string if value is formatted).</p>
+				</div>
+				
+				<h6>Examples</h6>
+				<small>Note: The returned example values below are displaying live data from the current cart session data.</small>
+				<table class="example">
+					<tr>
+						<td>
+							<code>sub_total(TRUE, TRUE, FALSE)</code>
+							<small>What is the <span class="uline">current</span> sub_total, <span class="uline">including</span> any set discount?</small>
+						</td>
+						<td class="spacer_200 align_ctr">
+							<span class="tooltip_trigger" title="Note: The price difference between 'internal' pricing and this example is only apparent if the user is viewing prices in a currency different from the default cart setting. This can be changed via the demos navigation menus 'Feature Examples'.">
+								<?php echo $this->flexi_cart->sub_total(TRUE, TRUE, FALSE);?>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>sub_total(FALSE, TRUE, FALSE)</code>
+							<small>What is the <span class="uline">current</span> sub_total, <span class="uline">excluding</span> any set discount?</small>
+						</td>
+						<td class="spacer_200 align_ctr">
+							<span class="tooltip_trigger" title="Note: The price difference between 'internal' pricing and this example is only apparent if the user is viewing prices in a currency different from the default cart setting. This can be changed via the demos navigation menus 'Feature Examples'.">
+								<?php echo $this->flexi_cart->sub_total(FALSE, TRUE, FALSE);?>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>sub_total(TRUE, TRUE, TRUE)</code>
+							<small>What is the <span class="uline">internal</span> sub_total, <span class="uline">including</span> any set discount?</small>
+						</td>
+						<td class="spacer_200 align_ctr"><?php echo $this->flexi_cart->sub_total(TRUE, TRUE, TRUE);?></td>
+					</tr>
+					<tr>
+						<td>
+							<code>sub_total(FALSE, TRUE, TRUE)</code>
+							<small>What is the <span class="uline">internal</span> sub_total, <span class="uline">excluding</span> any set discount?</small>
+						</td>
+						<td class="spacer_200 align_ctr"><?php echo $this->flexi_cart->sub_total(FALSE, TRUE, TRUE);?></td>
+					</tr>
+				</table>
+			</div>
+
 			<a name="total"></a>
 			<div class="w100 frame">
 				<h3 class="heading">total()</h3>
@@ -710,7 +809,6 @@
 					</tr>
 				</table>
 			</div>
-
 			<a name="item_summary_savings_total"></a>
 			<div class="w100 frame">
 				<h3 class="heading">item_summary_savings_total()</h3>

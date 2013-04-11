@@ -280,6 +280,41 @@ class Flexi_cart_lite
 	###+++++++++++++++++++++++++++++++++###
 
 	/**
+	 * sub_total
+	 * Returns the sub-total value of the cart (e.g. grand total excluding tax).
+	 */
+	public function sub_total($inc_discount = TRUE, $format = TRUE, $internal_value = FALSE)
+	{
+		if ($inc_discount)
+		{
+			// Total up all taxable, non-taxable values and the carts total tax value.
+			$cart_taxable_value = $this->CI->flexi->cart_contents['settings']['tax']['data']['cart_taxable_value'];
+			$cart_non_taxable_value = $this->CI->flexi->cart_contents['settings']['tax']['data']['cart_non_taxable_value'];
+		
+			// Surcharge total is not included in the taxable value above as it must remain excluded from discounts - i.e. you cannot discount a surcharge.
+			// Therefore, the surcharge must be calculated and added to the total.
+			$surcharge_total = $this->CI->flexi->cart_contents['summary']['surcharge_total'];
+			$sub_total = ($cart_taxable_value + $cart_non_taxable_value);
+		}
+		else
+		{
+			// The non-discounted cart summary total is to be used, therefore the total already includes the surcharge value.
+			$surcharge_total = 0;
+			$sub_total = ($this->CI->flexi->cart_contents['summary']['total'] - $this->CI->flexi->cart_contents['summary']['tax_total']);
+		}
+			
+		if (! $internal_value)
+		{
+			$surcharge_total = ($inc_discount) ? $this->convert_to_cart_currency($surcharge_total) : 0;
+			$sub_total = $this->convert_to_cart_currency($sub_total);
+		}
+
+		return $this->format_currency(($sub_total + $surcharge_total), $format, 2, $internal_value);
+	}
+
+	###+++++++++++++++++++++++++++++++++###
+
+	/**
 	 * total
 	 * Returns the grand total value of the cart.
 	 */
