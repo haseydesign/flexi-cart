@@ -36,8 +36,55 @@
 		<div class="content clearfix">
 			
 			<div class="w100 frame">
+				<h3 class="heading">Github Commit History</h3>
+				<h6>See the Github commit history log for more better indepth and up-to-date details on changes.</h6>
+				<p><a href="https://github.com/haseydesign/flexi-cart/commits/master">https://github.com/haseydesign/flexi-cart/commits/master</a></p>
+			</div>
+			
+			<div class="w100 frame">
+				<h3 class="heading">Version Beta 1.2</h3>
+				<h6>Release Date April 2013</h6>
+				<hr/>
+				<ul>
+					<li>Added new cart sub-total functionality to display the total of the cart excluding tax.</li>
+					<li>Updated database dump file to include default values for table columns.</li>
+					<li>Fixed minor css issues within the demo.</li>
+				</ul>
+			</div>
+			
+			<div class="w100 frame">
+				<h3 class="heading">Version Beta 1.1.2</h3>
+				<h6>Release Date January 2013</h6>
+				<hr/>
+				<ul>
+					<li>Updated save_cart_data() function to return the inserted row id rather than TRUE.</li>
+				</ul>
+			</div>
+			
+			<div class="w100 frame">
+				<h3 class="heading">Version Beta 1.1.1</h3>
+				<h6>Release Date November 2012</h6>
+				<hr/>
+				<ul>
+					<li>Minor bug fix to ensure that discounts with identical codes are ordered correctly by their 'order by' column.</li>
+					<li>Minor bug fix that was causing incorrect values being returned by the item_summary_total() function when a discount is applied and the user views prices either inc/ex tax.</li>
+					<li>Minor bug fix that was causing fixed discounts to not being removed when using the update_discount_codes() function.</li>
+				</ul>
+			</div>
+
+			<div class="w100 frame">
+				<h3 class="heading">Version Beta 1.1</h3>
+				<h6>Release Date September 2012</h6>
+				<hr/>
+				<ul>
+					<li>Added new examples of adding items to the cart via ajax.</li>
+					<li>User guide tweaks, including the addition of a search tool.</li>
+				</ul>
+			</div>
+			
+			<div class="w100 frame">
 				<h3 class="heading">Version Beta 1.0.2</h3>
-				<h6>Release Date 9th August 2012</h6>
+				<h6>Release Date August 2012</h6>
 				<hr/>
 				<ul>
 					<li>Minor bug fix for PHP warning of 'Warning Message: Creating default object from empty value'.</li>
@@ -46,7 +93,7 @@
 
 			<div class="w100 frame">
 				<h3 class="heading">Version Beta 1.0.1</h3>
-				<h6>Release Date 22nd May 2012</h6>
+				<h6>Release Date May 2012</h6>
 				<hr/>
 				<ul>
 					<li>
@@ -72,7 +119,7 @@
 			
 			<div class="w100 frame">
 				<h3 class="heading">Version Beta 1.0</h3>
-				<h6>Release Date 1st January 2012</h6>
+				<h6>Release Date January 2012</h6>
 				<hr/>
 				<ul>
 					<li>First publicly released version.</li>
