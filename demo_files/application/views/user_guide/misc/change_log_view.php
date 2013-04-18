@@ -76,7 +76,7 @@
 			</div>
 			
 			<div class="w100 frame">
-				<h3 class="heading">VerRelease | August 2012</h3>
+				<h3 class="heading">Release | August 2012</h3>
 				<ul>
 					<li>Minor bug fix for PHP warning of 'Warning Message: Creating default object from empty value'.</li>
 				</ul>
