@@ -173,6 +173,45 @@ class Flexi_cart_admin_model extends Flexi_cart_lite_model
 	}
 	
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
+	// CREATE SQL LIKE QUERY AGAINST MULTIPLE DEFINED COLUMNS
+	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
+
+	/**
+	 * create_sql_like
+	 * Create an sql like query against multiple defined columns.
+	 */
+	public function create_sql_like($order_summary_cols = FALSE, $search_query = FALSE, $exact_match = FALSE)
+	{
+		if (! empty($order_summary_cols) && is_array($order_summary_cols) && ! empty($search_query))
+		{
+			// Create a concatenated string of columns to search against.
+			$concat_cols = "(CONCAT_WS(' '";
+			foreach ($order_summary_cols as $column)
+			{
+				$concat_cols .= ', '.$column;
+			}
+
+			// Convert search query to array if it isn't already.
+			$query_terms = (is_array($search_query)) ? $search_query : explode(' ', $search_query);	
+			
+			// Define whether to use 'AND' or 'OR' condition.
+			$sql_condition = ($exact_match) ? ' AND ' : ' OR ';
+			
+			// Create array of user column data and each search query term.
+			$i = 0;
+			$sql_like = "(";
+			foreach ($query_terms as $term)
+			{
+				$sql_like .= $concat_cols.", ".$i++.") LIKE '%".$this->CI->db->escape_like_str($term)."%')".$sql_condition;
+			}
+			$sql_like = rtrim($sql_like, $sql_condition).")";
+			
+			// Set SQL WHERE LIKE statement to be passed to get_table_data() function.
+			$this->CI->db->where($sql_like, NULL, FALSE);
+		}
+	}
+	
+	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
 	// CREATE SQL WHERE VIA SELECT MENUS
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
 

@@ -44,7 +44,8 @@
 			<div class="w100 frame">
 				<h3 class="heading">Release | April 2013</h3>
 				<ul>
-					<li>Added new cart sub-total functionality to display the total of the cart excluding tax.</li>
+					<li>Added a new <a href="<?php echo $base_url; ?>user_guide/order_admin#search_orders">order search</a> function that enables easy keyword searches of the order summary table.</li>
+					<li>Added new <a href="<?php echo $base_url; ?>user_guide/cart_summary_session_data#sub_total">cart sub-total</a> functionality to display the total of the cart excluding tax.</li>
 					<li>Updated database dump file to include default values for table columns.</li>
 					<li>Fixed minor css issues within the demo.</li>
 				</ul>

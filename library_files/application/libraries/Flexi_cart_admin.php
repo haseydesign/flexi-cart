@@ -795,6 +795,25 @@ class Flexi_cart_admin extends Flexi_cart_lite
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###	
 
 	/**
+	 * search_orders
+	 * Compare a search query against order summary columns defined in the config file.
+	 */
+	public function search_orders_query($search_query = FALSE, $exact_match = FALSE, $sql_select = FALSE, $sql_where = FALSE)
+	{
+		if (! empty($search_query))
+		{
+			// Get order summary table columns to be searched, set via config file.
+			$order_summary_cols = $this->CI->flexi->cart_database['order_summary']['search_order_cols'];
+
+			$this->CI->flexi_cart_admin_model->create_sql_like($order_summary_cols, $search_query, $exact_match);
+		}
+		
+		return $this->get_db_order_summary_query($sql_select, $sql_where);
+	}	
+
+	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
+
+	/**
 	 * get_db_order_query
 	 * Gets records from the order summary and order detail table using a user defined SQL SELECT query.
 	 */

@@ -142,6 +142,10 @@
 				<h6>Order Table CRUD Functions</h6>
 				<ul>
 					<li>
+						<a href="<?php echo $base_url; ?>user_guide/order_admin#search_orders">search_orders()</a><br/>
+						<small>SQL SELECT query via a keyword search on order summary table.</small>
+					</li>
+					<li>
 						<a href="<?php echo $base_url; ?>user_guide/order_admin#get_db_order">get_db_order()</a><br/>
 						<small>SQL SELECT query on order tables.</small>
 					</li>

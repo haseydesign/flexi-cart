@@ -52,7 +52,7 @@
 				</p>
 				<h6>Order SELECT Functions</h6>
 				<p>
-					<a href="#get_db_order">get_db_order()</a> | <a href="#get_db_order_summary">get_db_order_summary()</a> | <a href="#get_db_order_detail">get_db_order_detail()</a>
+					<a href="#search_orders">search_orders()</a> | <a href="#get_db_order">get_db_order()</a> | <a href="#get_db_order_summary">get_db_order_summary()</a> | <a href="#get_db_order_detail">get_db_order_detail()</a>
 				</p>
 				<h6>Order UPDATE / DELETE Functions</h6>
 				<p>
@@ -231,6 +231,119 @@ $this->flexi_cart_admin->get_refund_summary($order_number)->row();
 </pre>
 			</div>
 			
+			<a name="search_orders"></a>
+			<div class="w100 frame">
+				<h3 class="heading">search_orders()</h3>
+				
+				<p>Gets data from the order summary and order status table via a keyword based search query.</p>
+				<hr/>
+			
+				<h6>Library and Requirements</h6>
+				<div class="frame_note">
+					<p>Available via the admin library only.</p>
+					<p>Requires all order database tables to be enabled.</p>
+				</div>				
+				
+				<h6>Function Parameters</h6>
+				<code>search_orders(search_query, exact_match, sql_select, sql_where)</code>
+				<a href="#help" class="help_link">Help</a>
+				<table>
+					<thead>
+						<tr>
+							<th class="spacer_125">Name</th>
+							<th class="spacer_100 align_ctr">Data Type</th>
+							<th class="spacer_75 align_ctr">Required</th>
+							<th class="spacer_75 align_ctr">Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>search_query</td>
+							<td class="align_ctr">string | array</td>
+							<td class="align_ctr">Yes</td>
+							<td class="align_ctr">FALSE</td>
+							<td>Defines the search terms used to query the order summary table.</td>
+						</tr>
+						<tr>
+							<td>exact_match</td>
+							<td class="align_ctr">bool</td>
+							<td class="align_ctr">No</td>
+							<td class="align_ctr">FALSE</td>
+							<td>
+								Define whether all keywords within the search query must be in the matched records.<br/>
+								Example: For a search query of "John Smith", an exact match would not return a record matching the name "John".
+							</td>
+						</tr>
+						<tr>
+							<td>sql_select</td>
+							<td class="align_ctr">string | array</td>
+							<td class="align_ctr">No</td>
+							<td class="align_ctr">FALSE</td>
+							<td>
+								Define the database fields returned via an SQL SELECT statement.<br/>
+								Read the <a href="<?php echo $base_url; ?>user_guide/defining_custom_sql">defining SQL documentation</a> for further information.
+							</td>
+						</tr>
+						<tr>
+							<td>sql_where</td>
+							<td class="align_ctr">string | int | array</td>
+							<td class="align_ctr">No</td>
+							<td class="align_ctr">FALSE</td>
+							<td>
+								Set the SQL WHERE statement used to filter the database records to return.<br/>
+								Read the <a href="<?php echo $base_url; ?>user_guide/defining_custom_sql">defining SQL documentation</a> for further information.
+							</td>
+						</tr>
+					</tbody>
+				</table>
+						
+				<h6>How it Works</h6>
+				<div class="frame_note">
+					<p>The function works in a similar way to the <a href="#get_db_order_summary">get_db_order_summary()</a> function, with the exception that it allows the returned results to be additionally filtered via search terms.</p>
+					<p>The submitted search term is split into individual terms that are then each matched against specific table columns that have been defined via the setting 'search_order_cols' in the libraries config. file.</p>
+					<p>If the function has defined the query to only return exact matches, then the SQL function will only return records where every individual term is matched to each record.</p>
+				</div>
+				
+				<h6>Notes</h6>
+				<div class="frame_note">
+					<p>This function is compatible with flexi carts '<a href="<?php echo $base_url; ?>user_guide/custom_sql_query_builder">Query Builder</a>' functions.</p>
+					<hr/>
+					<p>This function can be chained with CodeIgniters query functions 'result()', 'row()' etc.</p>
+					<p>
+						Read the <a href="<?php echo $base_url; ?>user_guide/query_sql_results">Query Result documentation</a> for further information on all the combined flexi cart and CodeIgniter functions that are available.
+					</p>
+					<hr/>
+					<p>
+						If a string or int value is submitted to the 'sql_where' parameter, the function will match the value against the order number column.<br/>
+						Example: If 'sql_where' is submitted as 'X0123Y', the SQL WHERE statement will be "<code>WHERE 'order_number_column' = 'X0123Y'</code>".
+					</p>
+					<p>
+						Note that this is functionality is different from other functions that only perform this behaviour when an int value is submitted.<br/>
+						This does however mean that string based SQL WHERE statements can not be used with this function, an array must be used instead.
+					</p>
+				</div>
+			
+				<h6>Return Values</h6>
+				<div class="frame_note">
+					<p><strong class="spacer_100">Failure:</strong>FALSE | An error message will be set if a required table/feature is disabled.</p>
+					<p><strong class="spacer_100">Success:</strong>object</p>
+				</div>
+				
+				<h6>Example</h6>
+<pre>
+<span class="comment">// Read the <a href="<?php echo $base_url; ?>user_guide/defining_custom_sql">defining SQL documentation</a> for further information on setting SQL statements.</span>
+$search_query = 'John Smith';
+$exact_match = false;
+$sql_select = array(...);
+$sql_where = array(...);
+
+<span class="comment">// Example of chaining CI's query function 'result()'.
+// Read the <a href="<?php echo $base_url; ?>user_guide/query_sql_results">Query Result documentation</a> for further information on available functions.</span>
+$this->flexi_cart_admin->search_orders($search_query, $exact_match, $sql_select, $sql_where)->result();
+</pre>
+			</div>
+
 			<a name="get_db_order"></a>
 			<div class="w100 frame">
 				<h3 class="heading">get_db_order()</h3>

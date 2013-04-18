@@ -811,6 +811,15 @@
 	$config['database']['order_summary']['columns']['status'] = 'ord_status';
 	$config['database']['order_summary']['columns']['date'] = 'ord_date';
 
+	/**
+	 * Order Summary Searchable Columns
+	 * Searchable order summary columns, used in conjunction with the search_orders() function.
+	 */
+	$config['database']['order_summary']['search_order_cols'] = array(
+		'ord_demo_bill_name', 'ord_demo_bill_company', 'ord_demo_bill_post_code',
+		'ord_demo_ship_name', 'ord_ship_bill_company', 'ord_demo_ship_post_code', 'ord_demo_email'
+	);
+
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
 	
 	/**

@@ -53,7 +53,7 @@
 				</p>
 				<h6>Table and Config File Settings</h6>
 				<p>
-					<a href="#order_summary_table">Order Summary Table</a> | <a href="#order_details_table">Order Details Table</a> | <a href="#order_details_columns">Order Detail Custom Table Columns</a> | <a href="#order_status_table">Order Status Table</a>
+					<a href="#order_summary_table">Order Summary Table</a> | <a href="#order_summary_search_columns">Order Summary Searchable Columns</a> | <a href="#order_details_table">Order Details Table</a> | <a href="#order_details_columns">Order Detail Custom Table Columns</a> | <a href="#order_status_table">Order Status Table</a>
 				</p>
 			</div>
 		
@@ -324,7 +324,27 @@ $config['database']['order_summary']['columns']['savings_total'] = FALSE;
 $config['database']['order_summary']['table'] = FALSE;
 </pre>
 			</div>
-						
+
+			<a name="order_summary_search_columns"></a>
+			<div class="w100 frame">
+				<h3 class="heading">Order Summary Searchable Columns</h3>
+				
+				<div class="frame_note">
+					<p>The library includes a function to search the order summary table via keywords using the search_orders() function.</p>
+					<p>By default, the config file is not defined with any searchable order summary columns as keyword based search terms would typically be associated with custom columns that are added by the developer to the order summary table.</p>
+				</div>
+				
+				<h6>Example</h6>
+<pre>
+<span class="comment">// This example is relating data from the following custom cart column data.</span>
+$config['database']['order_summary']['search_order_cols'] = array(
+	'custom_column_1',
+	'custom_column_2',
+	'custom_column_3'
+);
+</pre>
+			</div>
+			
 			<a name="order_details_table"></a>
 			<div class="w100 frame">
 				<h3 class="heading">Order Details Table</h3>
@@ -591,20 +611,20 @@ $config['database']['order_details']['table'] = FALSE;
 <pre>
 <span class="comment">// This example is relating data from the following custom cart column data.</span>
 $config['cart']['items']['custom_columns'] = array(
-array(
-	'name' => 'user_note', 
-	'required' => FALSE, 
-	'regex' => FALSE, 
-	'decimals' => FALSE, 
-	'default' => NULL, 
-	'updatable'=> TRUE
-)
+	array(
+		'name' => 'user_note', 
+		'required' => FALSE, 
+		'regex' => FALSE, 
+		'decimals' => FALSE, 
+		'default' => NULL, 
+		'updatable'=> TRUE
+	)
 );
 
 <span class="comment">// The custom cart column is then related to the custom table columm array by referencing its 'name' 
 // as an array key. The tables column name is then the array value.</span>
 $config['database']['order_details']['custom_columns'] = array(
-'user_note' => 'ord_det_demo_user_note'
+	'user_note' => 'ord_det_demo_user_note'
 );
 </pre>
 			</div>
