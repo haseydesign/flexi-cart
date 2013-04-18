@@ -27,7 +27,6 @@
 			<div class="intro_text">
 				<h1>User Guide | flexi cart</h1>
 				<p>flexi cart is the developers toolkit for building highly customised shopping carts.</p>
-				<p>The <strong>latest version is 1.0.2</strong>, released on 09/08/12. The <a href="<?php echo $base_url; ?>user_guide/change_log">change log</a> contains all amendments made to the library.</p>
 			</div>		
 		</div>
 	</div>
