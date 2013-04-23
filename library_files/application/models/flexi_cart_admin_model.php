@@ -202,12 +202,12 @@ class Flexi_cart_admin_model extends Flexi_cart_lite_model
 			$sql_like = "(";
 			foreach ($query_terms as $term)
 			{
-				$sql_like .= $concat_cols.", ".$i++.") LIKE '%".$this->CI->db->escape_like_str($term)."%')".$sql_condition;
+				$sql_like .= $concat_cols.", ".$i++.") LIKE '%".$this->db->escape_like_str($term)."%')".$sql_condition;
 			}
 			$sql_like = rtrim($sql_like, $sql_condition).")";
 			
 			// Set SQL WHERE LIKE statement to be passed to get_table_data() function.
-			$this->CI->db->where($sql_like, NULL, FALSE);
+			$this->db->where($sql_like, NULL, FALSE);
 		}
 	}
 	
