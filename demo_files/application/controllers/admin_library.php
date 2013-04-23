@@ -750,9 +750,9 @@ class Admin_library extends CI_Controller {
 			$this->demo_cart_admin_model->demo_update_discounts();
 		}
 		
-		// Get an array of all discounts filtered by a 'type' of 1 ('item discounts') and for purposes of this demo, have an id over 30.
+		// Get an array of all discounts filtered by a 'type' of 1 ('item discounts') and for purposes of this demo, have an id of 32+.
 		$sql_where = array(
-			$this->flexi_cart_admin->db_column('discounts', 'id').' >' => 36,
+			$this->flexi_cart_admin->db_column('discounts', 'id').' >=' => 32,
 			$this->flexi_cart_admin->db_column('discounts', 'type') => 1
 		);
 		$this->data['discount_data'] = $this->flexi_cart_admin->get_db_discount_array(FALSE, $sql_where);
