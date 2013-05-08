@@ -83,7 +83,7 @@
 						</li>
 						<li>
 							<label for="minimum_order" class="toggle">Minimum Order Value (&pound;)</label>
-							<input type="text" id="minimum_order" name="update[minimum_order]" value="<?php echo set_value('update[increment_order_number]', $config[$this->flexi_cart_admin->db_column('configuration', 'minimum_order')]); ?>" placeholder="0" class="width_50 validate_decimal"/>
+							<input type="text" id="minimum_order" name="update[minimum_order]" value="<?php echo set_value('update[minimum_order]', $config[$this->flexi_cart_admin->db_column('configuration', 'minimum_order')]); ?>" placeholder="0" class="width_50 validate_decimal"/>
 							
 							<small class="hide_toggle frame_note">
 								<strong>What is the minimum order value?</strong><br/>
