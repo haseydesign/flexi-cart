@@ -43,7 +43,7 @@
 				<?php echo $message; ?>
 			</div>
 		<?php } ?>
-										
+
 			<?php echo form_open(current_url());?>						
 				<h1><?php echo ($discount_type == 'item') ? 'Item' : 'Summary';?> Discounts</h1>
 				<p>

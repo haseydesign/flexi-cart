@@ -2043,7 +2043,6 @@ class Demo_cart_admin_model extends CI_Model {
 
 		// Set new cart defaults.			
 		$sql_update = array('curr_default' => 1);
-		
 		$this->flexi_cart_admin->update_db_currency($sql_update, $data['currency']);
 
 		$sql_update = array('loc_ship_default' => 1);
