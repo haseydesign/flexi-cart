@@ -77,7 +77,13 @@
 				</table>
 				
 				<table>
-					<caption>Insert Items to Group</caption>
+					<caption>
+						Insert Items to Group
+						<small>
+							Note: The demo contains 5 demo items with the ids: 1, 2, 3, 4 and 5, with demo category ids of 1 and 2. 
+							<a href="<?php echo $base_url; ?>admin_library/items">See more item details</a>
+						</small>
+					</caption>
 					<thead>
 						<tr>
 							<th class="info_req tooltip_trigger"
