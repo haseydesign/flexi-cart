@@ -52,6 +52,7 @@
 				<?php } else { ?>
 					<a href="<?php echo $base_url; ?>admin_library/summary_discounts">Manage Summary Discounts</a> | 
 				<?php } ?>
+					<a href="<?php echo $base_url; ?>admin_library/discount_groups">Manage Item Discount Groups</a> | 
 					<a href="<?php echo $base_url; ?>admin_library/insert_discount">Insert New Discount</a>
 				</p>
 

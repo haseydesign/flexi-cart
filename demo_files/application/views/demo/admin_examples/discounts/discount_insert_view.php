@@ -48,7 +48,7 @@
 			<p>
 				<a href="<?php echo $base_url; ?>admin_library/item_discounts">Manage Item Discounts</a> | 
 				<a href="<?php echo $base_url; ?>admin_library/summary_discounts">Manage Summary Discounts</a> | 
-				<a href="<?php echo $base_url; ?>admin_library/discount_groups">Manage Discount Groups</a>
+				<a href="<?php echo $base_url; ?>admin_library/discount_groups">Manage Item Discount Groups</a>
 			</p>
 						
 			<?php echo form_open(current_url());?>
