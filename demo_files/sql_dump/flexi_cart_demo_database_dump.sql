@@ -125,7 +125,7 @@ CREATE TABLE `demo_categories` (
   `cat_name` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`cat_id`),
   UNIQUE KEY `cat_id` (`cat_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=sjis COMMENT='Note: This is a custom demo table for item categories.';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='Note: This is a custom demo table for item categories.';
 
 -- ----------------------------
 -- Records of demo_categories
@@ -146,7 +146,7 @@ CREATE TABLE `demo_items` (
   PRIMARY KEY (`item_id`),
   UNIQUE KEY `item_id` (`item_id`),
   KEY `item_cat_fk` (`item_cat_fk`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=sjis COMMENT='Note: This is a custom demo table for items.';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='Note: This is a custom demo table for items.';
 
 -- ----------------------------
 -- Records of demo_items
@@ -168,7 +168,7 @@ CREATE TABLE `demo_users` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_id` (`user_id`) USING BTREE,
   KEY `user_group_fk` (`user_group_fk`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=sjis COMMENT='Note: This is a custom demo table for users.';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='Note: This is a custom demo table for users.';
 
 -- ----------------------------
 -- Records of demo_users
