@@ -51,7 +51,7 @@ class Flexi_cart_lite_model extends CI_Model
 		$this->flexi->error_messages = array('public' => array(), 'admin' => array());
 		
 		// Get current cart content from session.
-		if ($this->session->userdata($this->flexi->cart['name']) !== FALSE)
+		if ($this->session->userdata($this->flexi->cart['name']))
 		{
 			$this->flexi->cart_contents = $this->session->userdata($this->flexi->cart['name']);
 		}
