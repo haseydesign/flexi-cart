@@ -2204,13 +2204,13 @@ class Flexi_cart_admin_model extends Flexi_cart_lite_model
 			
 			$order_query = $this->db->get_where($this->flexi->cart_database['order_summary']['table'], $sql_where);
 
-			if ($order_query->num_rows == 1)
+			if ($order_query->num_rows() == 1)
 			{
 				$sql_where = array($this->flexi->cart_database['order_details']['columns']['order_number'] => $order_number);
 				
 				$order_details_query = $this->db->get_where($this->flexi->cart_database['order_details']['table'], $sql_where);
 
-				if ($order_details_query->num_rows > 0)
+				if ($order_details_query->num_rows() > 0)
 				{
 					$order_data['summary_data'] = $order_query->row_array();
 					$order_data['item_data'] = $order_details_query->result_array();
